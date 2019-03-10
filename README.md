@@ -1,3 +1,3 @@
 # StepanSS.github.io
-Landing Page on GitHub 
-Landing Page With Smooth Scroll
+Landing Page With Smooth Scroll on GitHub 
+
