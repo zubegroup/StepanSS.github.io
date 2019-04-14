@@ -12,7 +12,7 @@ body {
         max-width: 800px;
     }
 }
-#subtitle{
+#subtitle, h1 {
     text-align: center;
 }
 @media screen and (min-width: 800px) {
@@ -21,4 +21,3 @@ body {
         max-width:  20%;
     }
 }
-
