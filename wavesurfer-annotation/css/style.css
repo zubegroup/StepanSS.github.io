@@ -1,0 +1,24 @@
+/* Space out content a bit */
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+    }
+/* Customize container */
+@media (min-width: 900px) {
+    .container {
+        max-width: 800px;
+    }
+}
+#subtitle{
+    text-align: center;
+}
+@media screen and (min-width: 800px) {
+    input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].btn-block   {
+        display: inline;
+        max-width:  20%;
+    }
+}
+
