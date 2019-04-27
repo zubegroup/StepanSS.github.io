@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
    // Load the audio file from your own domain !
     //wavesurfer.load('demo.mp3');
     wavesurfer.load('vsshort.aac');
-    
+
     wavesurfer.on("ready", function(){
         // Do something when the file has been loaded
 //        buttons.play.disabled = false;
@@ -37,15 +37,15 @@ document.addEventListener('DOMContentLoaded', function() {
         wavesurfer.pause();
         wavesurfer.stop();
     });
-    
-    
+
+
 //    // Store the 3 buttons in some object
 //            var buttons = {
 //                play: document.getElementById("play"),
 //                pause: document.getElementById("pause"),
 //                stop: document.getElementById("stop")
 //            };
-//    
+//
 //    // Handle Play button
 //            buttons.play.addEventListener("click", function(){
 //                wavesurfer.play();
@@ -72,9 +72,9 @@ document.addEventListener('DOMContentLoaded', function() {
 //                buttons.play.disabled = false;
 //                buttons.stop.disabled = true;
 //            }, false);
-    
+
     /* Regions */
-    
+
     function onReady(){
        wavesurfer.enableDragSelection({
             color: randomColor(0.1)
@@ -82,9 +82,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (localStorage.regions) {
             console.log("onready localStorage.regions");
-            loadRegions(JSON.parse(localStorage.regions)); 
-            
-        } 
+            loadRegions(JSON.parse(localStorage.regions));
+
+        }
         else {
             // loadRegions(
             //     extractRegions(
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     loadRegions(data);
                     saveRegions();
                 });
-        } 
+        }
     }
 
     wavesurfer.on('ready', onReady);
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
             wavesurfer.pause();
         });
     });
-    
+
     /* Toggle play/pause buttons. */
     var playButton = document.querySelector('#play');
     var pauseButton = document.querySelector('#pause');
@@ -142,42 +142,42 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Enable/Disable respectively buttons
 //                buttons.stop.disabled = false;
-                buttons.pause.disabled = false;
-                buttons.play.disabled = true;
+                // buttons.pause.disabled = false;
+                // buttons.play.disabled = true;
             }, false);
     // Handle Pause button
             pauseButton.addEventListener("click", function(){
                 wavesurfer.pause();
 
                 // Enable/Disable respectively buttons
-                buttons.pause.disabled = true;
-                buttons.play.disabled = false;
+                // buttons.pause.disabled = true;
+                // buttons.play.disabled = false;
             }, false);
-    
-});    
-    
+
+});
+
     /**
      * Get next region start time.
      */
-    function getNextRegStartTime(region){        
+    function getNextRegStartTime(region){
         console.log(region.id);
         console.log(wavesurfer.regions.list);
         var trigger = false;
         var prevEndTime;
         var prevId;
         for(const key in wavesurfer.regions.list){
-            var tempReg = wavesurfer.regions.list[key];            
+            var tempReg = wavesurfer.regions.list[key];
 //            console.log(tempReg);
             if(trigger){
                 console.log(tempReg.start);
                 trigger=false;
                 return tempReg.start;
             }
-            
+
             if(region.id == tempReg.id){
                 console.log(tempReg.id);
                 //console.log(wavesurfer.regions.list);
-                
+
                 // find previous region and change end time
                 Object.keys(wavesurfer.regions.list).map(function(id) {
                     var region = wavesurfer.regions.list[id];
@@ -196,8 +196,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             prevId = tempReg.id;
         }
-        
-        
+
+
     }
     /**
      * Edit annotation for a region.
@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
         form.elements.note.value = region.data.note || '';
         form.onsubmit = function(e) {
             e.preventDefault();
-            
+
 //            getNextRegStartTime(region);
             region.update({
                 start: form.elements.start.value,
@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function saveRegions() {
 //        console.log(Object.keys(wavesurfer.regions.list));
         localStorage.regions = JSON.stringify(
-         
+
             Object.keys(wavesurfer.regions.list).map(function(id) {
                 var region = wavesurfer.regions.list[id];
                 return {
@@ -244,11 +244,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     data: region.data
                 };
             })
-            
+
         );
     }
-    
-    
+
+
     /**
      * Random RGBA color.
      */
@@ -264,7 +264,7 @@ document.addEventListener('DOMContentLoaded', function() {
             ')'
         );
     }
-    
+
     /**
      * Load regions from localStorage.
      */
@@ -273,7 +273,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log("loadRegions(regions)");
         for(var i = 0; i<regLen; i++){
 //            console.log(regions[i].start);
-            regions[i].color =randomColor(0.1); 
+            regions[i].color =randomColor(0.1);
             if(i<regLen-1){
                 regions[i].end=regions[i+1].start;
 
