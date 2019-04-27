@@ -31,45 +31,47 @@ document.addEventListener('DOMContentLoaded', function() {
     
     wavesurfer.on("ready", function(){
         // Do something when the file has been loaded
-        buttons.play.disabled = false;
+//        buttons.play.disabled = false;
         // Do whatever you need to do with the player
         wavesurfer.play();
         wavesurfer.pause();
         wavesurfer.stop();
     });
-    // Store the 3 buttons in some object
-            var buttons = {
-                play: document.getElementById("play"),
-                pause: document.getElementById("pause"),
-                stop: document.getElementById("stop")
-            };
     
-    // Handle Play button
-            buttons.play.addEventListener("click", function(){
-                wavesurfer.play();
-
-                // Enable/Disable respectively buttons
-                buttons.stop.disabled = false;
-                buttons.pause.disabled = false;
-                buttons.play.disabled = true;
-            }, false);
-    // Handle Pause button
-            buttons.pause.addEventListener("click", function(){
-                wavesurfer.pause();
-
-                // Enable/Disable respectively buttons
-                buttons.pause.disabled = true;
-                buttons.play.disabled = false;
-            }, false);
-    // Handle Stop button
-            buttons.stop.addEventListener("click", function(){
-                wavesurfer.stop();
-
-                // Enable/Disable respectively buttons
-                buttons.pause.disabled = true;
-                buttons.play.disabled = false;
-                buttons.stop.disabled = true;
-            }, false);
+    
+//    // Store the 3 buttons in some object
+//            var buttons = {
+//                play: document.getElementById("play"),
+//                pause: document.getElementById("pause"),
+//                stop: document.getElementById("stop")
+//            };
+//    
+//    // Handle Play button
+//            buttons.play.addEventListener("click", function(){
+//                wavesurfer.play();
+//
+//                // Enable/Disable respectively buttons
+//                buttons.stop.disabled = false;
+//                buttons.pause.disabled = false;
+//                buttons.play.disabled = true;
+//            }, false);
+//    // Handle Pause button
+//            buttons.pause.addEventListener("click", function(){
+//                wavesurfer.pause();
+//
+//                // Enable/Disable respectively buttons
+//                buttons.pause.disabled = true;
+//                buttons.play.disabled = false;
+//            }, false);
+//    // Handle Stop button
+//            buttons.stop.addEventListener("click", function(){
+//                wavesurfer.stop();
+//
+//                // Enable/Disable respectively buttons
+//                buttons.pause.disabled = true;
+//                buttons.play.disabled = false;
+//                buttons.stop.disabled = true;
+//            }, false);
     
     /* Regions */
     
@@ -122,6 +124,38 @@ document.addEventListener('DOMContentLoaded', function() {
             wavesurfer.pause();
         });
     });
+    
+    /* Toggle play/pause buttons. */
+    var playButton = document.querySelector('#play');
+    var pauseButton = document.querySelector('#pause');
+    wavesurfer.on('play', function() {
+        playButton.style.display = 'none';
+        pauseButton.style.display = '';
+    });
+    wavesurfer.on('pause', function() {
+        playButton.style.display = '';
+        pauseButton.style.display = 'none';
+    });
+    // Handle Play button
+            playButton.addEventListener("click", function(){
+                wavesurfer.play();
+
+                // Enable/Disable respectively buttons
+//                buttons.stop.disabled = false;
+                buttons.pause.disabled = false;
+                buttons.play.disabled = true;
+            }, false);
+    // Handle Pause button
+            pauseButton.addEventListener("click", function(){
+                wavesurfer.pause();
+
+                // Enable/Disable respectively buttons
+                buttons.pause.disabled = true;
+                buttons.play.disabled = false;
+            }, false);
+    
+});    
+    
     /**
      * Get next region start time.
      */
@@ -213,17 +247,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
         );
     }
-//    /* Toggle play/pause buttons. */
-//    var playButton = document.querySelector('#play');
-//    var pauseButton = document.querySelector('#pause');
-//    wavesurfer.on('play', function() {
-//        playButton.style.display = 'none';
-//        pauseButton.style.display = '';
-//    });
-//    wavesurfer.on('pause', function() {
-//        playButton.style.display = '';
-//        pauseButton.style.display = 'none';
-//    });
+    
     
     /**
      * Random RGBA color.
@@ -272,4 +296,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 //    console.log(localStorage.regions);
-});
