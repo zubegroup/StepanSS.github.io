@@ -1,0 +1,61 @@
+﻿[
+    {
+        "start":4.700,
+        "end":6.736,
+        "data":{ "note":"where are you going so early?"}
+    },{
+        "start":6.900,
+        "end":9.494,
+        "data":{ "note":"Don't record any more messages<br />on my alarm clock."}
+    },{
+        "start":9.660,
+        "end":11.252,
+        "data":{ "note":"why not?"}
+    },{
+        "start":11.420,"end":13.888,
+        "data":{ "note":"I'll start to think we're married<br />or something."}
+    },{
+        "start":14.060,"end":15.732,
+        "data":{ "note":"Don't ever say that word."}
+    },{
+        "start":15.900,"end":20.132,
+        "data":{ "note":"I'll never bring you chicken soup<br />and fuck your brains out again."}
+    },{
+        "start":20.700,"end":25.774,
+        "data":{ "note":"- How's your cold?<br />- Still there. How about yours?"}
+    },{
+        "start":25.940,"end":29.649,
+        "data":{ "note":"- You definitely took my mind off it.<br />- Really?"}
+    },{
+        "start":30.540,"end":32.690,
+        "data":{ "note":"Yes!"}
+    },{
+        "start":39.420,"endMillis":41.376,
+        "data":{ "note":"Juliana here."}
+    },{
+        "start":41.540,"end":45.010,
+        "data":{ "note":"Hi, Rayna. I missed my audition,<br />I lost my head!"}
+    },{
+        "start":45.180,"endend":46.977,
+        "data":{ "note":"Listen, I have to go."}
+    },{
+        "start":47.140,"end":49.017,
+        "data":{ "note":"I'm with David."}
+    },{
+        "start":52.740,"end":57.939,
+        "data":{ "note":"Help yourself to whatever you want.<br />Set the alarm before you go. And..."}
+    },{
+        "start":60.100,"end":61.738,
+        "data":{ "note":"You are the greatest."}
+    },{
+        "start":62.540,"end":66.579,"data":{ "note":"- Bye, honey!<br />- Bye, honey. I'll call you later."}
+    },{
+        "start":66.740,"end":67.968,
+        "data":{ "note":"when?"}
+    },{
+        "start":69.060,"end":71.255,"data":{ "note":"- When?<br />- Soon!"}
+    }]
+
+
+
+

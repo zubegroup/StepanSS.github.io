@@ -26,7 +26,8 @@ document.addEventListener('DOMContentLoaded', function() {
         ]
     });
    // Load the audio file from your own domain !
-    wavesurfer.load('demo.mp3');
+    //wavesurfer.load('demo.mp3');
+    wavesurfer.load('vsshort.aac');
     
     wavesurfer.on("ready", function(){
         // Do something when the file has been loaded
@@ -71,14 +72,16 @@ document.addEventListener('DOMContentLoaded', function() {
             }, false);
     
     /* Regions */
-
-    wavesurfer.on('ready', function() {
-        wavesurfer.enableDragSelection({
+    
+    function onReady(){
+       wavesurfer.enableDragSelection({
             color: randomColor(0.1)
         });
 
         if (localStorage.regions) {
-            loadRegions(JSON.parse(localStorage.regions));
+            console.log("onready localStorage.regions");
+            loadRegions(JSON.parse(localStorage.regions)); 
+            
         } 
         else {
             // loadRegions(
@@ -87,25 +90,30 @@ document.addEventListener('DOMContentLoaded', function() {
             //         wavesurfer.getDuration()
             //     )
             // );
+            console.log("onready wavesurfer.util");
             wavesurfer.util
                 .ajax({
                     responseType: 'json',
-                    url: 'annotations.json'
+                    //url: 'annotations.json'
+                    url: 'vsshort_annot.json'
                 })
                 .on('success', function(data) {
+                    //console.log("data");
                     loadRegions(data);
                     saveRegions();
                 });
-        }
-    });
+        } 
+    }
+
+    wavesurfer.on('ready', onReady);
     wavesurfer.on('region-click', function(region, e) {
         e.stopPropagation();
         // Play on click, loop on shift click
         e.shiftKey ? region.playLoop() : region.play();
     });
-//    wavesurfer.on('region-click', editAnnotation);
-//    wavesurfer.on('region-updated', saveRegions);
-//    wavesurfer.on('region-removed', saveRegions);
+    wavesurfer.on('region-click', editAnnotation);
+    wavesurfer.on('region-updated', saveRegions);
+    wavesurfer.on('region-removed', saveRegions);
     wavesurfer.on('region-in', showNote);
 
     wavesurfer.on('region-play', function(region) {
@@ -114,7 +122,97 @@ document.addEventListener('DOMContentLoaded', function() {
             wavesurfer.pause();
         });
     });
+    /**
+     * Get next region start time.
+     */
+    function getNextRegStartTime(region){        
+        console.log(region.id);
+        console.log(wavesurfer.regions.list);
+        var trigger = false;
+        var prevEndTime;
+        var prevId;
+        for(const key in wavesurfer.regions.list){
+            var tempReg = wavesurfer.regions.list[key];            
+//            console.log(tempReg);
+            if(trigger){
+                console.log(tempReg.start);
+                trigger=false;
+                return tempReg.start;
+            }
+            
+            if(region.id == tempReg.id){
+                console.log(tempReg.id);
+                //console.log(wavesurfer.regions.list);
+                
+                // find previous region and change end time
+                Object.keys(wavesurfer.regions.list).map(function(id) {
+                    var region = wavesurfer.regions.list[id];
+                    //console.log(region.id);
+                    if(prevId==region.id){
+                        //change end time for previous region
+                        //region.end = Math.round(tempReg.start*10)/10;
+                        console.log(region.end);
+                        region.update({
+                            //start: form.elements.start.value,
+                            end: Math.round(tempReg.start*10)/10
+                        });
+                    }
+                });
+                trigger=true;
+            }
+            prevId = tempReg.id;
+        }
+        
+        
+    }
+    /**
+     * Edit annotation for a region.
+     */
+    function editAnnotation(region) {
+        var form = document.forms.edit;
+        form.style.opacity = 1;
+        (form.elements.start.value = Math.round(region.start * 10) / 10),
+            (form.elements.end.value = getNextRegStartTime(region)); //Math.round(region.end * 10) / 10);
+        form.elements.note.value = region.data.note || '';
+        form.onsubmit = function(e) {
+            e.preventDefault();
+            
+//            getNextRegStartTime(region);
+            region.update({
+                start: form.elements.start.value,
+                end: form.elements.end.value,
+                data: {
+                    note: form.elements.note.value
+                }
+            });
+            form.style.opacity = 0;
+        };
+        form.onreset = function() {
+            form.style.opacity = 0;
+            form.dataset.region = null;
+        };
+        form.dataset.region = region.id;
+    }
 
+    /**
+     * Save annotations to localStorage.
+     */
+    function saveRegions() {
+//        console.log(Object.keys(wavesurfer.regions.list));
+        localStorage.regions = JSON.stringify(
+         
+            Object.keys(wavesurfer.regions.list).map(function(id) {
+                var region = wavesurfer.regions.list[id];
+                return {
+                    start: region.start,
+                    end: region.end,
+                    attributes: region.attributes,
+                    data: region.data
+                };
+            })
+            
+        );
+    }
 //    /* Toggle play/pause buttons. */
 //    var playButton = document.querySelector('#play');
 //    var pauseButton = document.querySelector('#pause');
@@ -147,8 +245,9 @@ document.addEventListener('DOMContentLoaded', function() {
      * Load regions from localStorage.
      */
     function loadRegions(regions) {
-        let regLen = regions.length
-        for(let i = 0; i<regLen; i++){
+        var regLen = regions.length;
+        console.log("loadRegions(regions)");
+        for(var i = 0; i<regLen; i++){
 //            console.log(regions[i].start);
             regions[i].color =randomColor(0.1); 
             if(i<regLen-1){
@@ -172,5 +271,5 @@ document.addEventListener('DOMContentLoaded', function() {
         showNote.el.textContent = region.data.note || '–';
     }
 
-    
+//    console.log(localStorage.regions);
 });
