@@ -39,40 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
-//    // Store the 3 buttons in some object
-//            var buttons = {
-//                play: document.getElementById("play"),
-//                pause: document.getElementById("pause"),
-//                stop: document.getElementById("stop")
-//            };
-//
-//    // Handle Play button
-//            buttons.play.addEventListener("click", function(){
-//                wavesurfer.play();
-//
-//                // Enable/Disable respectively buttons
-//                buttons.stop.disabled = false;
-//                buttons.pause.disabled = false;
-//                buttons.play.disabled = true;
-//            }, false);
-//    // Handle Pause button
-//            buttons.pause.addEventListener("click", function(){
-//                wavesurfer.pause();
-//
-//                // Enable/Disable respectively buttons
-//                buttons.pause.disabled = true;
-//                buttons.play.disabled = false;
-//            }, false);
-//    // Handle Stop button
-//            buttons.stop.addEventListener("click", function(){
-//                wavesurfer.stop();
-//
-//                // Enable/Disable respectively buttons
-//                buttons.pause.disabled = true;
-//                buttons.play.disabled = false;
-//                buttons.stop.disabled = true;
-//            }, false);
-
     /* Regions */
 
     function onReady(){
@@ -200,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     }
     /**
-     * Edit annotation for a region.
+     * Edit annotation for a region.++++++MODIFIED
      */
     function editAnnotation(region) {
         var form = document.forms.edit;
@@ -266,7 +232,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     /**
-     * Load regions from localStorage.
+     * Load regions from localStorage.++++++MODIFIED
      */
     function loadRegions(regions) {
         var regLen = regions.length;
