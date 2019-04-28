@@ -214,7 +214,6 @@ document.addEventListener('DOMContentLoaded', function() {
         );
     }
 
-
     /**
      * Random RGBA color.
      */
@@ -236,13 +235,13 @@ document.addEventListener('DOMContentLoaded', function() {
      */
     function loadRegions(regions) {
         var regLen = regions.length;
-        console.log("loadRegions(regions)");
+        // console.log("loadRegions(regions)");
         for(var i = 0; i<regLen; i++){
 //            console.log(regions[i].start);
             regions[i].color =randomColor(0.1);
+            //replace end time for each region exept last one
             if(i<regLen-1){
                 regions[i].end=regions[i+1].start;
-
             }
             wavesurfer.addRegion(regions[i]);
         }
