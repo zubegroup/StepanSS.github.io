@@ -15,9 +15,12 @@ Different from origin:
 
 Code modification description:
 1. Function "loadRegions(regions)" - loading regions from json file and replase origin "end time" with time pulled from next region "start time"
-2. In "editAnnotation(region)" function line with "form.elements.end.value = Math.round(region.end * 10) / 10)" 
+2. In "editAnnotation(region)" function line with "form.elements.end.value = Math.round(region.end * 10) / 10)"
         replaced by "form.elements.end.value = getNextRegStartTime(region)".
 
 3. New function "getNextRegStartTime(region)" - return "start time" from next region and update "end time" for previous region.
    (This function iterate all regions and find id of selected region, id of region befor selected and after selected region.)
-   
+
+
+
+You can found original code in app.js
