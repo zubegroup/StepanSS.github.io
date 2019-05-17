@@ -19,7 +19,7 @@ $(".custom-select").on('change', function() {
     var backgroundNum = $(this).val()
 
     console.log(backgroundNum);
-    var imgName = "url(/images/bg-"+backgroundNum+".jpg)"
+    var imgName = "url(/siteSample/images/bg-"+backgroundNum+".jpg)"
     $('body').attr('style', 'background-image:'+imgName);
 
 });
