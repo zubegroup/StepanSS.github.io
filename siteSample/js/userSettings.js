@@ -8,7 +8,7 @@ $("#buyButton").on('change', function() {
         $('.delay').attr('style', "display:block");
     }
     else {
-       switchStatus = $(this).is(':checked');//       
+       switchStatus = $(this).is(':checked');//
         var stat = $('.delay').attr('style', "display:none");
 //        console.log(stat);
     }
@@ -16,12 +16,12 @@ $("#buyButton").on('change', function() {
 
 //Change background img
 $(".custom-select").on('change', function() {
-    var backgroundNum = $(this).val() 
-        
+    var backgroundNum = $(this).val()
+
     console.log(backgroundNum);
-    var imgName = "url(/images/bg-"+backgroundNum+".jpg)"
+    var imgName = "url(siteSample/images/bg-"+backgroundNum+".jpg)"
     $('body').attr('style', 'background-image:'+imgName);
-    
+
 });
 
 
@@ -35,7 +35,7 @@ $("#autoplay").on('change', function() {
 //        $('.video').attr('autoplay', true);
     }
     else {
-       switchStatus = $(this).is(':checked');//       
+       switchStatus = $(this).is(':checked');//
         var stat = $('.video').attr('autoplay', false);
 //        console.log(stat);
     }

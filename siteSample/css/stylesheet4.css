@@ -1,5 +1,5 @@
 body {
-  background-image:url("/images/bg-1.jpg");
+  background-image:url("siteSample/images/bg-1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0;
@@ -18,7 +18,7 @@ body {
 }
 
 .header {
-  width:977px; 
+  width:977px;
   height: auto;
   text-align: center;
   margin:auto;
@@ -26,7 +26,7 @@ body {
 }
 
 #header img {
-  max-width: 976px; 
+  max-width: 976px;
   height:auto;
   display:block;
 }
@@ -67,10 +67,10 @@ body {
 }
 
 .video-container {
-  
+
 }
 .video-container iframe {
- 
+
 }
 
 .bottom {
@@ -117,7 +117,7 @@ body {
 .footer-right ul {
   margin:0px;
   padding:0px;
-  
+
 }
 .footer-right a {
   color:#888888;
@@ -197,12 +197,12 @@ tabe.ototab th, table.ototab td {
   border: none !important;
 }
 .todd {
-  padding: 20px; 
+  padding: 20px;
   background-color: #eaeef1;
   box-shadow: inset 0 0 0 5px #fff, 0 1px 2px 1px rgba(0,0,0,.2);
   max-width: 745px;
   margin: auto;
-} 
+}
 
 }
 .image-left {
@@ -415,14 +415,14 @@ table.ototab th, table.ototab td {
           margin-left: auto;
           margin-top: -30px;
       }
-      
+
       /* This is the tables wrapper */
       .tables-wrap {
         display: inline-block;
         width: 50%;
         margin: auto;
       }
-      
+
       /* Sets the size of tables to a third */
       .col-33 {
         transition: all 0.3s;
@@ -434,7 +434,7 @@ table.ototab th, table.ototab td {
       .clearfix {
         clear: both;
       }
-      
+
 
       /* A product offer is essentially one pricing table */
       .product-offer {
@@ -583,7 +583,7 @@ table.ototab th, table.ototab td {
 
       .product-offer .buy-now .buttons:hover .nothovered {
         display: none;
-      } 
+      }
 
       .active-table {
         -webkit-transform: scale(1.03);
@@ -633,5 +633,5 @@ table.ototab th, table.ototab td {
 /*    float: left;*/
 /*    height: 100%;*/
 /*    width: 20%;*/
-/*    margin: 0%;*/    
+/*    margin: 0%;*/
 }
