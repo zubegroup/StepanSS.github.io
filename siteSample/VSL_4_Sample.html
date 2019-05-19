@@ -18,62 +18,66 @@
 	<link rel="stylesheet" type="text/css" href="css/stylesheet4.css">
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css">
-
-
+    
+    
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-
+	
 </head><body>
 <!--comment: Full body-->
 <div id="wrapper">
-    <div class="container">
-        <div class="row">
+   
+   <!-- Settings Panel-->
+   <div class="cont" >
+   <form method='GET' action="">
+       <div class="row">
             <div class="col-md-4">
-                <div class="form-group">
-                    <select class="custom-select">
+                <div class="form-group"> 
+                    <select class="custom-select" name="background">
                       <option selected="" value="1">Background-1</option>
                       <option value="2">Background-2</option>
                       <option value="3">Background-3</option>
                       <option value="4">Background-4</option>
                       <option value="5">Background-5</option>
                     </select>
-                </div>
+                </div> 
             </div>
             <div class="col-md-8">
                 <div class="row">
                    <div class="col-md-6">
                         <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" id="autoplay" >
+                          <input type="checkbox" class="custom-control-input" id="autoplay" name="autoplay">
                           <label class="custom-control-label" for="autoplay">Autoplay</label>
                         </div>
                    </div>
                    <div class="col-md-6">
                         <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" id="buyButton" >
+                          <input type="checkbox" class="custom-control-input" id="buyButton" name="buyButton">
                           <label class="custom-control-label" for="buyButton">Instant buy button </label>
                         </div>
-                   </div>
-
+                   </div>                    
                 </div>
                 <div class="row">
                    <div class="col-md-6">
                        <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" id="salesText" checked="">
+                          <input type="checkbox" class="custom-control-input" id="salesText" name="salesText">
                           <label class="custom-control-label" for="salesText">Sales text</label>
                         </div>
                    </div>
                    <div class="col-md-6">
                         <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" id="exitPop" checked="">
+                          <input type="checkbox" class="custom-control-input" id="exitPop" name="exitPop">
                           <label class="custom-control-label" for="exitPop">Exit pop feature</label>
                         </div>
                    </div>
-
+                    
                 </div>
             </div>
         </div>
+       <input type="submit" class="btn btn-primary" value="Apply Settings">
+   </form>
     </div>
     <!-- END Settings Panel-->
-
+    
 	<!--comment: Everything Body-->
 	<div id="inner">
 		<div id="main">
@@ -81,7 +85,7 @@
 			<img src="images/video-headline.png" style="width: 100%; max-width: 860px">
 			<!--Headline END-->
 			<!--Sales Video-->
-			<div class="video-container">
+			<div class="video-container"> 
 				<video class="video" style="max-width: 854px; width: 100%;" controls >
 					<source src="https://s3.amazonaws.com/8-fo/854_Videos/8FO-VSL.mp4">
 				</video>
@@ -92,7 +96,7 @@
 			$(function(){
      			setTimeout(function(){
         			$(".delay").show()
-     			}, 1565000);
+     			}, 1565000); 
    			});
       		</script>
 			<br>
@@ -115,7 +119,7 @@
 					<li class=""><a target="_blank" href="http://8xfemaleorgasm.com/ts/T_S.html"><strong>Terms &amp; Services</strong></a></li>
 					<li class=""><a target="_blank" href="http://8xfemaleorgasm.com/faq/faq.html"><strong>FAQ</strong></a></li>
 					<li class=""><a target="_blank" href="http://8xfemaleorgasm.com/VSL/VSL-txt.html"><strong>Text Version</strong></a></li>
-					<li class=""><a target="_blank" href="http://8xfemaleorgasm.com/order/pre-ord.html"><strong>Order NOW</strong></a></li>
+					<li class=""><a target="_blank" href="http://8xfemaleorgasm.com/order/pre-ord.html"><strong>Order NOW</strong></a></li> 
    	 			</ul>
 	    	</div>
 	    </div>
@@ -124,7 +128,7 @@
 			var today = new Date()
 			var year = today.getFullYear()
 			document.write(year)
-			</script>2019
+			</script>
 			<!--End auto year -->
 			<br>
 			</div>
