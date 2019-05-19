@@ -20,7 +20,7 @@ $(".custom-select").on('change', function() {
     var backgroundNum = $(this).val()
     var url      = window.location.href;
     //get absolute url
-    url = url.split(/(.+\/).+\.html$/)[1];
+    url = url.split(/(.+\/).+\.html/)[1];
     console.log(url);
 
     var imgName = "url("+url+"images/bg-"+backgroundNum+".jpg)"
@@ -66,9 +66,11 @@ function getUrlVars() {
 //    console.log(salesText);
 //    console.log(exitPop);
 if(background){
-    var imgName = "url(../images/bg-"+background+".jpg)"
+    var url      = window.location.href;
+    //get absolute url
+    url = url.split(/(.+\/).+\.html/)[1];
+    var imgName = "url("+url+"images/bg-"+background+".jpg)"
     $('body').attr('style', 'background-image:'+imgName);
-
 }
 if(autoplay){
    $('.video')[0].autoplay = true;
