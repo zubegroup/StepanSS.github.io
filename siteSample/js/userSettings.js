@@ -1,4 +1,4 @@
-//=======Dynamic settings applying 
+//=======Dynamic settings applying
 
 //trigger for Sales Text
 var switchStatus = false;
@@ -9,7 +9,7 @@ $("#salesText").on('change', function() {
         $('.delay').attr('style', "display:block");
     }
     else {
-       switchStatus = $(this).is(':checked');//       
+       switchStatus = $(this).is(':checked');//
         var stat = $('.delay').attr('style', "display:none");
 //        console.log(stat);
     }
@@ -17,15 +17,15 @@ $("#salesText").on('change', function() {
 
 //Change background img
 $(".custom-select").on('change', function() {
-    var backgroundNum = $(this).val() 
+    var backgroundNum = $(this).val()
     var url      = window.location.href;
     //get absolute url
     url = url.split(/(.+\/).+\.html$/)[1];
     console.log(url);
-    
+
     var imgName = "url("+url+"images/bg-"+backgroundNum+".jpg)"
     $('body').attr('style', 'background-image:'+imgName);
-    
+
 });
 
 //trigger for Autoplay
@@ -38,12 +38,12 @@ $("#autoplay").on('change', function() {
 //        $('.video').attr('autoplay', true);
     }
     else {
-       switchStatus = $(this).is(':checked');//       
+       switchStatus = $(this).is(':checked');//
         var stat = $('.video').attr('autoplay', false);
 //        console.log(stat);
     }
 });
-//======= END Dynamic settings applying 
+//======= END Dynamic settings applying
 
 //============= Get parameters from url ====//
 //alert(location.search);
@@ -66,22 +66,19 @@ function getUrlVars() {
 //    console.log(salesText);
 //    console.log(exitPop);
 if(background){
-    var imgName = "url(/images/bg-"+background+".jpg)"
+    var imgName = "url(../images/bg-"+background+".jpg)"
     $('body').attr('style', 'background-image:'+imgName);
-    
+
 }
 if(autoplay){
-   $('.video')[0].autoplay = true; 
+   $('.video')[0].autoplay = true;
 }
 if(buyButton){
-   $('.sales_text').attr('style', "display:block"); 
+   $('.sales_text').attr('style', "display:block");
 }
 if(salesText){
-   $('.delay').attr('style', "display:block"); 
+   $('.delay').attr('style', "display:block");
 }
 if(exitPop){
-   $('.exit_pop').attr('style', "display:block"); 
+   $('.exit_pop').attr('style', "display:block");
 }
-
-
-
