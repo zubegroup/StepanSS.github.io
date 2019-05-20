@@ -55,11 +55,11 @@ function getUrlVars() {
     return vars;
 }
 
-    var background = getUrlVars()["background"];
-    var autoplay = getUrlVars()["autoplay"];
-    var buyButton = getUrlVars()["buyButton"];
-    var salesText = getUrlVars()["salesText"];
-    var exitPop = getUrlVars()["exitPop"];
+    var background = getUrlVars()["bg"];
+    var autoplay = getUrlVars()["play"];
+    var buyButton = getUrlVars()["button"];
+    var salesText = getUrlVars()["text"];
+    var exitPop = getUrlVars()["exit"];
 //    console.log(background);
 //    console.log(autoplay);
 //    console.log(buyButton);
