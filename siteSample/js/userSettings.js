@@ -1,8 +1,8 @@
 //=======Dynamic settings applying
 
-//trigger for Sales Text
+//trigger for Buy Button
 var switchStatus = false;
-$("#salesText").on('change', function() {
+$("#buyButton").on('change', function() {
     if ($(this).is(':checked')) {
         switchStatus = $(this).is(':checked');
 //        alert(switchStatus);// To verify
@@ -76,10 +76,10 @@ if(autoplay){
    $('.video')[0].autoplay = true;
 }
 if(buyButton){
-   $('.sales_text').attr('style', "display:block");
+   $('.delay').attr('style', "display:block"); delay
 }
 if(salesText){
-   $('.delay').attr('style', "display:block");
+   $('.sales_text').attr('style', "display:block");
 }
 if(exitPop){
    $('.exit_pop').attr('style', "display:block");
