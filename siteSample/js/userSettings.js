@@ -76,7 +76,7 @@ if(autoplay){
    $('.video')[0].autoplay = true;
 }
 if(buyButton){
-   $('.delay').attr('style', "display:block"); delay
+   $('.delay').attr('style', "display:block");
 }
 if(salesText){
    $('.sales_text').attr('style', "display:block");
