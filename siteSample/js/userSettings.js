@@ -15,6 +15,21 @@ $("#buyButton").on('change', function() {
     }
 });
 
+//trigger for Sales Text
+var switchTextStatus = false;
+$("#salesText").on('change', function() {
+    if ($(this).is(':checked')) {
+        switchTextStatus = $(this).is(':checked');
+//        alert(switchStatus);// To verify
+        $('.sales_text').attr('style', "display:block");
+    }
+    else {
+       switchTextStatus = $(this).is(':checked');//
+        var stat = $('.sales_text').attr('style', "display:none");
+        // console.log(stat);
+    }
+});
+
 //Change background img
 $(".custom-select").on('change', function() {
     var backgroundNum = $(this).val()
