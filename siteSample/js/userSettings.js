@@ -37,10 +37,14 @@ $(".custom-select").on('change', function() {
     //get absolute url
     url = url.split(/(.+\/).?/)[1];
     console.log(url);
-
     var imgName = "url("+url+"images/bg-"+backgroundNum+".jpg)"
     $('body').attr('style', 'background-image:'+imgName);
 
+    //Change bg color to black
+    if(backgroundNum==1){
+        $("#footer-inside a").attr('style', 'color:black');
+        $(".footer-left").attr('style', 'color:black');
+    };
 });
 
 //trigger for Autoplay
@@ -86,6 +90,11 @@ if(background){
     url = url.split(/(.+\/).?/)[1];
     var imgName = "url("+url+"images/bg-"+background+".jpg)"
     $('body').attr('style', 'background-image:'+imgName);
+    //Change bg color to black
+    if(background==1){
+        $("#footer-inside a").attr('style', 'color:black');
+        $(".footer-left").attr('style', 'color:black');
+    };
 }
 if(autoplay){
    $('.video')[0].autoplay = true;
