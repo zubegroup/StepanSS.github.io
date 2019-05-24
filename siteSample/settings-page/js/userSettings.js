@@ -1,36 +1,12 @@
 //=======Dynamic settings applying
+var link = 'http://8xfemaleorgasm.com/VSL/VSL_4.html';
+var bgVal = '1';
+var autoplayVsl = '';
+var instButton = '';
+var salesText = '';
+var exitPopup = '';
 
-//trigger for Buy Button
-var switchStatus = false;
-$("#buyButton").on('change', function() {
-    if ($(this).is(':checked')) {
-        switchStatus = $(this).is(':checked');
-//        alert(switchStatus);// To verify
-        $('.delay').attr('style', "display:block");
-    }
-    else {
-       switchStatus = $(this).is(':checked');//
-        var stat = $('.delay').attr('style', "display:none");
-//        console.log(stat);
-    }
-});
-
-//trigger for Sales Text
-var switchTextStatus = false;
-$("#salesText").on('change', function() {
-    if ($(this).is(':checked')) {
-        switchTextStatus = $(this).is(':checked');
-//        alert(switchStatus);// To verify
-        $('.sales_text').attr('style', "display:block");
-    }
-    else {
-       switchTextStatus = $(this).is(':checked');//
-        var stat = $('.sales_text').attr('style', "display:none");
-        // console.log(stat);
-    }
-});
-
-//Change background img
+//---Change background img
 $(".custom-select").on('change', function() {
     var backgroundNum = $(this).val()
     var url      = window.location.href;
@@ -39,6 +15,7 @@ $(".custom-select").on('change', function() {
     console.log(url);
     var imgName = "url("+url+"images/bg-"+backgroundNum+".jpg)"
     $('body').attr('style', 'background-image:'+imgName);
+    bgVal=backgroundNum;
 
     //Change bg color to black
     if(backgroundNum==1){
@@ -47,22 +24,115 @@ $(".custom-select").on('change', function() {
     };
 });
 
-//trigger for Autoplay
+//---trigger for Autoplay
 var switchAutoplay = false;
 $("#autoplay").on('change', function() {
     if ($(this).is(':checked')) {
         switchStatus = $(this).is(':checked');
-//        $(".video")[0].play();
-        $('.video')[0].autoplay = true;
-//        $('.video').attr('autoplay', true);
+        autoplayVsl = 'play=on';
+        displayLink(autoplayVsl);
     }
     else {
        switchStatus = $(this).is(':checked');//
-        var stat = $('.video').attr('autoplay', false);
-//        console.log(stat);
+        autoplayVsl = 'play=on';
+        removeFromLink(autoplayVsl);
+    }
+});
+//---trigger for Buy Button
+var switchStatus = false;
+$("#buyButton").on('change', function() {
+    if ($(this).is(':checked')) {
+        switchStatus = $(this).is(':checked');
+        instButton = "button=on";
+        displayLink(instButton);
+    }
+    else {
+       switchStatus = $(this).is(':checked');//
+        instButton = "button=on";
+        removeFromLink(instButton);
+    }
+});
+
+//---trigger for Sales Text
+var switchTextStatus = false;
+$("#salesText").on('change', function() {
+    if ($(this).is(':checked')) {       
+        salesText='text=on'; 
+        displayLink(salesText);
+    }
+    else {
+        salesText='text=on';
+        removeFromLink(salesText);
+    }
+});
+//---trigger for Exit Popup
+var switchTextStatus = false;
+$("#exitPop").on('change', function() {
+    if ($(this).is(':checked')) {       
+        exitPopup='popup=on'; 
+//        console.log(exitPopup);
+        displayLink(exitPopup);
+    }
+    else {
+        exitPopup='popup=on';
+//        console.log(exitPopup);
+        removeFromLink(exitPopup);
     }
 });
 //======= END Dynamic settings applying
+
+// Display link
+$( "#your_link" ).val(link);
+
+//Function to display Your Link
+function displayLink(str){
+    presentLink = $( "#your_link" ).val();
+    
+    if(presentLink==link){
+        var newlink =presentLink +"?"+ str;
+        $( "#your_link" ).val(newlink);  
+    }else{
+       var newlink =presentLink +"&"+ str;
+        $( "#your_link" ).val(newlink); 
+    }
+    
+        
+}
+// Function to remove param from link
+function removeFromLink(str){
+    presentLink = $( "#your_link" ).val();
+    if(presentLink == link){//original link
+    }    
+    var regExp1 = new RegExp('[\\?|\\&]'+str);
+    var regExp2 = new RegExp('[\\?]'+str+'\&?');
+    var regExp3 = new RegExp('[\\&]'+str);
+    var mutchSumm=presentLink.match('&');
+//    console.log(mutchSumm);
+    if(mutchSumm){//if more than 1 param
+        var newLink = '';
+        if(presentLink.match(regExp3)){
+          newLink = presentLink.replace(regExp3, ''); 
+        }
+        if(presentLink.match(regExp2)){
+           newLink = presentLink.replace(regExp2, '?');
+       }
+//        console.log(newLink);
+        $( "#your_link" ).val(newLink);
+        
+    }else{
+        var newLink = presentLink.replace(regExp1, '');
+        $( "#your_link" ).val(newLink);
+    }
+    
+}
+
+
+
+
+
+
+
+
 
 //============= Get parameters from url ====//
 //alert(location.search);

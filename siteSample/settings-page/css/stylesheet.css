@@ -10,13 +10,7 @@ body {
   font-family: Arial, Helvetica, Sans-serif;
 }
 
-#wrapper {
-  margin:auto;
-  width:100%;
-  height: auto;
-  max-width: 977px;
-  text-align: center;
-}
+
 
 .header {
   width:977px; 
@@ -32,58 +26,36 @@ body {
   display:block;
 }
 
-.subhead-line {
-  height: 16px;
-  margin: auto;
-  display:inherit;
+
+/*Style settings section*/
+.container{
+    margin: 5% auto;
+    padding: 20px;
+    background: #ccc;
+    
 }
 
-#inner {
-  background-image:url("/images/body_rows.png");
-  background-repeat: repeat-y;
-  width: 100%;
-  max-width: 976px;
-  margin: 0px auto;
-  padding: ;
-}
-#inner2 {
-  background-image:url("/images/body_rows.png");
-  background-repeat: repeat-y;
-  width: 100%;
-  max-width: 976px;
-  margin:;
-  padding: ;
-}
-#main {
-  padding: 10px;
-  width: 890px;
-  margin: 0px auto;
-}
-#tagline {
-
+.container .inner {
+    border: 1px solid #000;
+    padding: 10px;
 }
 
-.video {
-  border: 6px solid #D3D3D3;
+.container h3 {
+    text-align: center;
+}
+.row{
+    margin-top: 15px;
+    margin-bottom: 15px
+}
+.form-group {
+    margin-bottom: 0 !important;
 }
 
-.video-container {
-  
-}
-.video-container iframe {
- 
-}
+
 
 .bottom {
   height: 51px;
   text-align: center;
-}
-
-/*delayed content starts here */
-.delaycontentbox {
-  display: none;
-  max-width: 977px;
-  margin: auto;
 }
 
 #ord-button img {
@@ -94,6 +66,8 @@ body {
 #footer {
   min-height:91px;
   background-repeat:repeat-x;
+    position: ;
+    bottom: 0;
 }
 #footer-inside {
   width:950px;
@@ -410,11 +384,13 @@ table.ototab th, table.ototab td {
 }
 /* This is the tables container */
       .container {
+/*
         padding-right: 15px;
           padding-left: 15px;
           margin-right: auto;
           margin-left: auto;
-          margin-top: -30px;
+*/
+/*          margin-top: -30px;*/
       }
       
       /* This is the tables wrapper */
