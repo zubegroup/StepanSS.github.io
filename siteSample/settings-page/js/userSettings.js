@@ -102,22 +102,30 @@ function displayClickBank(str){
 function displayTID(str){
     var presentLink = $( "#your_link" ).val();
     var originalLinkEnd = /\/$/;
+    var hasSomeParam = /\?/;
     var tid='tid='+str;
     var newlink='';
     //original end
-    if(presentLink.match(originalLinkEnd)){
+    if(presentLink.match(originalLinkEnd) && str!=''){
         newlink =presentLink +"?"+ tid;
+        console.log("print");
     }else if(presentLink.match('tid=')){//Has some tid
-        var regExp1 = new RegExp('tid=\\w+');        
-        newlink = presentLink.replace(regExp1, tid);
+        
         if(str==''){
             console.log(tid);
             newlink = removeFromLink(tid);
+        }else{
+            var regExp1 = new RegExp('tid=\\w+');
+            newlink = presentLink.replace(regExp1, tid);
         }
-    }else if(presentLink.match('/\?/')){//has some param
+    }else if(presentLink.match(hasSomeParam) && str!=''){//has some param
         newlink =presentLink +"&"+ tid;
+        console.log("print &");
     }
-    $( "#your_link" ).val(newlink); 
+    if(newlink != ''){
+       $( "#your_link" ).val(newlink);  
+    }
+    
 }
 
 //Function to display Your Link
