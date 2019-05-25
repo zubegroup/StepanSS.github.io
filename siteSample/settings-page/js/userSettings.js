@@ -1,5 +1,6 @@
 //=======Dynamic settings applying
-var link = 'http://8xfemaleorgasm.com/VSL/VSL_4.html';
+var link2 = 'http://8xfemaleorgasm.com/VSL/VSL_4.html';
+var link = 'http://affiliate.zube8woeng.hop.clickbank.net/';
 var bgVal = '1';
 var autoplayVsl = '';
 var instButton = '';
@@ -84,28 +85,63 @@ $("#exitPop").on('change', function() {
 // Display link
 $( "#your_link" ).val(link);
 
+//function to display ClickBank
+function displayClickBank(str){
+    var presentLink = $( "#your_link" ).val();
+    var regExp1 = new RegExp('\/\/.*zu');
+    var newLink = presentLink.replace(regExp1, '//'+str+'.zu');    
+    if(str==''){
+        newLink = presentLink.replace(regExp1, '//'+str+'zu');
+//        console.log("Empty str");
+    }
+//    console.log(newLink);
+    $( "#your_link" ).val(newLink);
+}
+
+// Function to display TID
+function displayTID(str){
+    var presentLink = $( "#your_link" ).val();
+    var originalLinkEnd = /\/$/;
+    var tid='tid='+str;
+    var newlink='';
+    //original end
+    if(presentLink.match(originalLinkEnd)){
+        newlink =presentLink +"?"+ tid;
+    }else if(presentLink.match('tid=')){//Has some tid
+        var regExp1 = new RegExp('tid=\\w+');        
+        newlink = presentLink.replace(regExp1, tid);
+        if(str==''){
+            console.log(tid);
+            newlink = removeFromLink(tid);
+        }
+    }else if(presentLink.match('/\?/')){//has some param
+        newlink =presentLink +"&"+ tid;
+    }
+    $( "#your_link" ).val(newlink); 
+}
+
 //Function to display Your Link
 function displayLink(str){
-    presentLink = $( "#your_link" ).val();
-    
-    if(presentLink==link){
+    var presentLink = $( "#your_link" ).val();
+    var originalLinkEnd = /\/$/;
+    if(presentLink.match(originalLinkEnd)){
         var newlink =presentLink +"?"+ str;
         $( "#your_link" ).val(newlink);  
     }else{
        var newlink =presentLink +"&"+ str;
         $( "#your_link" ).val(newlink); 
-    }
-    
-        
+    }   
 }
+
 // Function to remove param from link
 function removeFromLink(str){
-    presentLink = $( "#your_link" ).val();
+    var presentLink = $( "#your_link" ).val();
     if(presentLink == link){//original link
-    }    
-    var regExp1 = new RegExp('[\\?|\\&]'+str);
-    var regExp2 = new RegExp('[\\?]'+str+'\&?');
-    var regExp3 = new RegExp('[\\&]'+str);
+    } 
+    //  has '\\w?' for TID removing
+    var regExp1 = new RegExp('[\\?|\\&]'+str+'\\w?');
+    var regExp2 = new RegExp('[\\?]'+str+'\\w?\&?');
+    var regExp3 = new RegExp('[\\&]'+str+'\\w?');
     var mutchSumm=presentLink.match('&');
 //    console.log(mutchSumm);
     if(mutchSumm){//if more than 1 param
@@ -122,7 +158,10 @@ function removeFromLink(str){
     }else{
         var newLink = presentLink.replace(regExp1, '');
         $( "#your_link" ).val(newLink);
+//        console.log(newLink);
+//        console.log(regExp1);
     }
+    return newLink;
     
 }
 
@@ -133,6 +172,7 @@ function removeFromLink(str){
 
 
 
+//****** NOT IN USE ****//
 
 //============= Get parameters from url ====//
 //alert(location.search);
