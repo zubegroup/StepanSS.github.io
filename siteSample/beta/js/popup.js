@@ -8,13 +8,15 @@ closeBtn.addEventListener('click', closeModal);
 //Listen for outside modal content click
 window.addEventListener('click', clickOutside);
 
+// Get parametr from userSettings.js
+var exitState = exitPopState;
 
 // Function to open modal if cursor leave body
-var modalState = false; 
+var modalState = true; //trigger to open modal one time only
 $(document).mouseleave(function () {    
-    if(!modalState){
+    if(modalState && exitState){
       modal.style.display = 'flex';
-        modalState = true;
+        modalState = false;
     }    
 });
 

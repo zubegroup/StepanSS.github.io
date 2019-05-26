@@ -105,6 +105,7 @@ if(buyButton){
 if(salesText){
    $('.sales_text').attr('style', "display:block");
 }
-if(exitPop){
-   $('.exit_pop').attr('style', "display:block");
+var exitPopState = true;
+if(exitPop=='off'){
+    exitPopState=false;
 }

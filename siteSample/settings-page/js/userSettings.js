@@ -1,22 +1,30 @@
 //=======Dynamic settings applying
 var link2 = 'http://8xfemaleorgasm.com/VSL/VSL_4.html';
 var link = 'http://affiliate.zube8woeng.hop.clickbank.net/';
-var bgVal = '1';
+//Variables to change Landing Page
+var landingPage2='Long Form Sales Text';
+var landingPage3='Direct to pre-order page';
+var landingPage4='Direct to order page';
+
+var bg = '';
 var autoplayVsl = '';
 var instButton = '';
 var salesText = '';
 var exitPopup = '';
 
+
+
 //---Change background img
-$(".custom-select").on('change', function() {
+$(".background").on('change', function() {
     var backgroundNum = $(this).val()
     var url      = window.location.href;
     //get absolute url
     url = url.split(/(.+\/).?/)[1];
-    console.log(url);
+//    console.log(url);
     var imgName = "url("+url+"images/bg-"+backgroundNum+".jpg)"
     $('body').attr('style', 'background-image:'+imgName);
-    bgVal=backgroundNum;
+    bg='bg='+backgroundNum;
+    displayBg(bg);
 
     //Change bg color to black
     if(backgroundNum==1){
@@ -25,11 +33,40 @@ $(".custom-select").on('change', function() {
     };
 });
 
+//---Change Landing Page
+$(".landing_page").on('change', function() {
+    var landingPage = $(this).val();
+    if(landingPage==1){
+        $(".custom-variables").attr('style', 'display:block');
+        
+        //reset checkboxes
+        resetCheckboxes();                
+        //reset original link
+        $( "#your_link" ).val(link);
+        //reset Background
+        bgDefault = 'bg='+$(".background").val();
+        displayLink(bgDefault);
+        //reset Popup
+        addPopupState("exit=on");
+    }else{
+        $(".custom-variables").attr('style', 'display:none');
+    };
+    if(landingPage==2){
+        $( "#your_link" ).val(landingPage2);
+    };
+    if(landingPage==3){
+        $( "#your_link" ).val(landingPage3);
+    };
+    if(landingPage==4){
+        $( "#your_link" ).val(landingPage4);
+    };
+});
+
 //---trigger for Autoplay
 var switchAutoplay = false;
 $("#autoplay").on('change', function() {
     if ($(this).is(':checked')) {
-        switchStatus = $(this).is(':checked');
+        switchStatus = $(this).is(':checked');//for debug
         autoplayVsl = 'play=on';
         displayLink(autoplayVsl);
     }
@@ -40,22 +77,18 @@ $("#autoplay").on('change', function() {
     }
 });
 //---trigger for Buy Button
-var switchStatus = false;
 $("#buyButton").on('change', function() {
     if ($(this).is(':checked')) {
-        switchStatus = $(this).is(':checked');
         instButton = "button=on";
         displayLink(instButton);
     }
     else {
-       switchStatus = $(this).is(':checked');//
         instButton = "button=on";
         removeFromLink(instButton);
     }
 });
 
 //---trigger for Sales Text
-var switchTextStatus = false;
 $("#salesText").on('change', function() {
     if ($(this).is(':checked')) {       
         salesText='text=on'; 
@@ -67,17 +100,14 @@ $("#salesText").on('change', function() {
     }
 });
 //---trigger for Exit Popup
-var switchTextStatus = false;
 $("#exitPop").on('change', function() {
     if ($(this).is(':checked')) {       
-        exitPopup='popup=on'; 
-//        console.log(exitPopup);
-        displayLink(exitPopup);
+        exitPopup='exit=on'; 
+        addPopupState(exitPopup);
     }
     else {
-        exitPopup='popup=on';
-//        console.log(exitPopup);
-        removeFromLink(exitPopup);
+        exitPopup='exit=off';
+        addPopupState(exitPopup);
     }
 });
 //======= END Dynamic settings applying
@@ -85,7 +115,49 @@ $("#exitPop").on('change', function() {
 // Display link
 $( "#your_link" ).val(link);
 
-//function to display ClickBank
+//add default Background
+var bgDefault = 'bg='+$(".background").val();
+displayLink(bgDefault);
+
+// Add Exit Popup
+if ($('#exitPop').is(':checked')){
+   addPopupState('exit=on'); 
+}
+
+//+++ Function to add Exit Popup State
+function addPopupState(str){
+    var presentLink = $( "#your_link" ).val();
+    var regExp1 = new RegExp('exit=\\w{2,3}');
+    //insert in link if parameter not found
+    if(!presentLink.match(regExp1)&& str=='exit=on'){
+        displayLink(str); 
+//        console.log('first print exit=on');
+    }else{// replace if par exist
+        var newLink = presentLink.replace(regExp1, str); 
+         $( "#your_link" ).val(newLink);
+    }
+}
+
+//+++ Function to reset Checkboxes
+function resetCheckboxes(){
+    $("#exitPop").prop('checked', true);
+    $("#autoplay").prop('checked', false);
+    $("#buyButton").prop('checked', false);
+    $("#salesText").prop('checked', false);
+//    $("#autoplay").val('checked')[0].checked=false;
+//    var attr = $("#autoplay").val('checked')[0].checked;
+//    console.log(attr);
+}
+
+//+++ Function to add Background to Link
+function displayBg(bg){
+    var presentLink = $( "#your_link" ).val();
+    var regExp1 = new RegExp('bg=\\d');
+    var newLink = presentLink.replace(regExp1, bg); 
+     $( "#your_link" ).val(newLink);
+}
+
+//+++function to add ClickBank to Link
 function displayClickBank(str){
     var presentLink = $( "#your_link" ).val();
     var regExp1 = new RegExp('\/\/.*zu');
@@ -98,7 +170,7 @@ function displayClickBank(str){
     $( "#your_link" ).val(newLink);
 }
 
-// Function to display TID
+//+++ Function to add TID
 function displayTID(str){
     var presentLink = $( "#your_link" ).val();
     var originalLinkEnd = /\/$/;
@@ -128,20 +200,22 @@ function displayTID(str){
     
 }
 
-//Function to display Your Link
+//+++Function to show "Your Link"
 function displayLink(str){
     var presentLink = $( "#your_link" ).val();
     var originalLinkEnd = /\/$/;
+    var match = presentLink.match(originalLinkEnd);
+    
     if(presentLink.match(originalLinkEnd)){
         var newlink =presentLink +"?"+ str;
-        $( "#your_link" ).val(newlink);  
+        $( "#your_link" ).val(newlink)
     }else{
        var newlink =presentLink +"&"+ str;
         $( "#your_link" ).val(newlink); 
-    }   
+    }
 }
 
-// Function to remove param from link
+//+++ Function to remove param from link
 function removeFromLink(str){
     var presentLink = $( "#your_link" ).val();
     if(presentLink == link){//original link
