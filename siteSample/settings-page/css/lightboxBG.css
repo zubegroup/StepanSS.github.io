@@ -1,0 +1,57 @@
+.bg_Ligtboxing{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    display: flex;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    
+}
+.ligtbox-content{
+    width: 80%;
+    height: 80%;
+    background: rgba(255,255,255, 1);
+    background-size: cover;
+    box-shadow: 0 5px 8px 0 rgba(255,255,255,0.2),0 7px 20px 0 rgba(255,255,255,0.17);
+    animation-name: modalopen;
+    animation-duration: 1s;
+}
+.close{
+    font-size: 40px;
+    position:absolute;
+    top: 0;
+    left: 85%;
+    float: right;
+/*    color: #e13a3b;    */
+}
+.close:hover, .close:focus{
+/*    color: #000;*/
+    text-decoration: none;
+    cursor: pointer;
+}
+/*
+
+.modal-header{
+    text-align:center;
+    
+}
+.modal-inner{
+    
+}
+.modal-footer{
+   justify-content: center; 
+}
+@keyframes modalopen{
+    from{
+        opacity: 0
+    }
+    to{
+        opacity: 1
+    }
+}*/

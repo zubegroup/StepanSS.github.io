@@ -12,6 +12,17 @@ var instButton = '';
 var salesText = '';
 var exitPopup = '';
 
+// Display link
+$( "#your_link" ).val(link);
+
+//add default Background
+var bgDefault = 'bg='+$(".background").val();
+displayLink(bgDefault);
+
+// Add Exit Popup
+if ($('#exitPop').is(':checked')){
+   addPopupState('exit=on'); 
+}
 
 
 //---Change background img
@@ -22,15 +33,16 @@ $(".background").on('change', function() {
     url = url.split(/(.+\/).?/)[1];
 //    console.log(url);
     var imgName = "url("+url+"images/bg-"+backgroundNum+".jpg)"
-    $('body').attr('style', 'background-image:'+imgName);
+//    $('body').attr('style', 'background-image:'+imgName);
+    showBGlightbox(imgName);
     bg='bg='+backgroundNum;
     displayBg(bg);
 
     //Change bg color to black
-    if(backgroundNum==1){
-        $("#footer-inside a").attr('style', 'color:black');
-        $(".footer-left").attr('style', 'color:black');
-    };
+//    if(backgroundNum==1){
+//        $("#footer-inside a").attr('style', 'color:black');
+//        $(".footer-left").attr('style', 'color:black');
+//    };
 });
 
 //---Change Landing Page
@@ -48,6 +60,7 @@ $(".landing_page").on('change', function() {
         displayLink(bgDefault);
         //reset Popup
         addPopupState("exit=on");
+        
     }else{
         $(".custom-variables").attr('style', 'display:none');
     };
@@ -112,18 +125,23 @@ $("#exitPop").on('change', function() {
 });
 //======= END Dynamic settings applying
 
-// Display link
-$( "#your_link" ).val(link);
 
-//add default Background
-var bgDefault = 'bg='+$(".background").val();
-displayLink(bgDefault);
-
-// Add Exit Popup
-if ($('#exitPop').is(':checked')){
-   addPopupState('exit=on'); 
+//+++ Copy to Clipboard Function
+function copyToClopboard(){
+    var text = $( "#your_link" ).val();
+    navigator.clipboard.writeText(text).then(function() {
+//        console.log('Async: Copying to clipboard was successful!');
+    }, function(err) {
+//        console.error('Async: Could not copy text: ', err);
+    });
+    
+    var tooltip = $('.inner_info');
+    tooltip.text( "Copied to Clipboard");
 }
-
+function outFunc() {
+  var tooltip = $('.inner_info');
+  tooltip.text( "Copy to Clipboard");
+}
 //+++ Function to add Exit Popup State
 function addPopupState(str){
     var presentLink = $( "#your_link" ).val();
@@ -184,7 +202,7 @@ function displayTID(str){
     }else if(presentLink.match('tid=')){//Has some tid
         
         if(str==''){
-            console.log(tid);
+//            console.log(tid);
             newlink = removeFromLink(tid);
         }else{
             var regExp1 = new RegExp('tid=\\w+');
@@ -192,7 +210,7 @@ function displayTID(str){
         }
     }else if(presentLink.match(hasSomeParam) && str!=''){//has some param
         newlink =presentLink +"&"+ tid;
-        console.log("print &");
+//        console.log("print &");
     }
     if(newlink != ''){
        $( "#your_link" ).val(newlink);  

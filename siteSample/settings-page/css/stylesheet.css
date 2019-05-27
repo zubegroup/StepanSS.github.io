@@ -27,29 +27,6 @@ body {
 }
 
 
-/*Style settings section*/
-.container{
-    margin: 5% auto;
-    padding: 20px;
-    background: #ccc;
-    
-}
-
-.container .inner {
-    border: 1px solid #000;
-    padding: 10px;
-}
-
-.container h3 {
-    text-align: center;
-}
-.row{
-    margin-top: 15px;
-    margin-bottom: 15px
-}
-.form-group {
-    margin-bottom: 0 !important;
-}
 
 
 
@@ -578,47 +555,99 @@ table.ototab th, table.ototab td {
           width: 100%;
         }
       }
-/*Styles for Additional Settings Panel
+/*Styles for Settings Panel
 * Author: Stepan S
 * Version: 0.0.1
-* Date: 17.05.2019
+* Date: 27.05.2019
 */
-/*
-.container:after{
-    content: '';
-    display: block;
-    clear: both;
+
+
+/*Style Settings Panel*/
+/*HopLink Generator*/
+.container{
+    margin: 5% auto;
+    padding: 20px;
+    background: #ccc;
+    border-radius: 10px;    
 }
-*/
-@media only screen and (min-width: 980px){
-    .cont{
-/*        background: rgba(36, 39, 125, 0.52);*/
-        width: 964px ;
-        padding: 0px 10px 0!important;
-        
-        margin: 0 auto !important;
-    }
-    form{
-        background: rgba(255, 255, 255, 0.7);
-        padding: 10;  
-    }
-} 
-.cont{
-/*    background-image:url("/images/body_rows.png");*/
-    text-align: left;
-    margin: 0;
-    padding: 0;
-    max-width: 100% !important;
-    font-size: 1.2em;
-    font-weight: 700;
-}
-form{
-    margin: 0;
-    padding: 10;
-    background: rgba(255, 255, 255, 0.7);
-/*    color: #D47DAE;*/
+
+.container .inner:before{
+    font-family: 'Font Awesome\ 5 Free';
+    content: '\f0c5  HopLink Generator';
+    position: relative;
+    top: -26;
+    font-size: 20px;
+    font-weight: 500;
+    background: #ccc;
+    margin: px;
+    padding: 4px 10px 
     
 }
+
+.container .inner {
+    border: 1px solid #000;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.container h3 {
+    text-align: center;
+}
+.row{
+    margin-top: 15px;
+    margin-bottom: 15px
+}
+.form-group {
+    margin-bottom: 0 !important;
+}
+.your-link{
+    width: 100%;
+    margin: auto;
+}
+#your_link{
+    width: 80%;
+    margin: auto
+}
+#copy_icon:before {
+    font-family: 'Font Awesome\ 5 Free';
+    content: '\f0c5';
+    position: relative;
+    top: -35;
+    left:90%;
+    font-size: 24px;
+    font-weight: 500;
+    background: #ccc;
+    margin: px;
+    padding: 4px 10px;
+    
+}
+
+#copy_icon:hover, #copy_icon:focus{
+/*    color: #000;*/
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#copy_icon .inner_info {
+    display: none;
+    background-color: #555;
+    color: #fff;
+    padding: 5px;
+    position: relative;
+    font-size: 12px;
+    float: right;
+    top: -65;
+    border-radius: 8px;
+    width: auto;
+}
+#copy_icon:hover .inner_info {
+  display: block;
+  opacity: 1;
+}
+
+
+/*End Settings Panel*/
+
 
 
 
