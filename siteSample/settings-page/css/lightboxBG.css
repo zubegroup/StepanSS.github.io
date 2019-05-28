@@ -1,7 +1,8 @@
 .bg_Ligtboxing{
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+/*    background-color: rgba(45, 22, 126, 0.9);*/
+    background-color: rgba(40, 40, 40, 0.97);
     position: fixed;
     z-index: 1;
     left: 0;
@@ -11,41 +12,94 @@
     justify-content: center;
     align-items: center;
     overflow: auto;
-    
+    animation-name: bgPopup;
+    animation-duration: 0.7s;
+    /* Safari 4.0 - 8.0 */
+  -webkit-animation-name: bgPopup;
+  -webkit-animation-duration: 0.7s;
 }
+
+@keyframes bgPopup{
+    from{
+        opacity: 0;
+    }to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 .ligtbox-content{
-    width: 80%;
+    width: 90%;
     height: 80%;
     background: rgba(255,255,255, 1);
     background-size: cover;
-    box-shadow: 0 5px 8px 0 rgba(255,255,255,0.2),0 7px 20px 0 rgba(255,255,255,0.17);
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.5),
+        0 7px 20px 0 rgba(0,0,0,0.4);
     animation-name: modalopen;
     animation-duration: 1s;
+    border-radius: 10px;
+    animation-name: bgPopupContant;
+    animation-duration: 0.7s; 
+    /* Safari 4.0 - 8.0 */
+  -webkit-animation-name: bgPopupContant;
+  -webkit-animation-duration: 0.7s;
 }
-.close{
-    font-size: 40px;
-    position:absolute;
-    top: 0;
-    left: 85%;
+@keyframes bgPopupContant{
+    from{
+        opacity: 0;
+        transform: scale(.1);
+        
+    }to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#closeModalBtn{
+    background-color: rgba(40, 40, 40, 1);
+    font-size: 35px;
+    height: 50px;
+    width: 50px;
+    text-decoration: none;
+    text-align: center;
+    justify-content: center;
+    position:relative;
+    top: -20;
+    right: -20px;
     float: right;
-/*    color: #e13a3b;    */
+    color: #fff; 
+    border-radius: 50%;
+    border: solid ;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.5),
+        0 7px 20px 0 rgba(0,0,0,0.4);
 }
-.close:hover, .close:focus{
-/*    color: #000;*/
+#closeModalBtn p {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 50%;
+    transform: translateY(-55%);
+}
+#closeModalBtn:hover{
+    background: #fff;
+    border: #fff;
+}
+#closeModalBtn:hover, #closeModalBtn:focus{
     text-decoration: none;
     cursor: pointer;
+    color: #000;
 }
 /*
 
 .modal-header{
     text-align:center;
-    
+
 }
 .modal-inner{
-    
+
 }
 .modal-footer{
-   justify-content: center; 
+   justify-content: center;
 }
 @keyframes modalopen{
     from{

@@ -1,7 +1,11 @@
 .bg-modal{
+    margin: 0;
+    padding: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.88);
+/*    background-color: rgba(0, 0, 0, 0.88);*/
+    background-color: rgba(40, 40, 40, 0.85);
+/*    background: rgba(76, 76, 76, 0.88);*/
     position: fixed;
     z-index: 1;
     left: 0;
@@ -11,39 +15,60 @@
     justify-content: center;
     align-items: center;
     overflow: auto;
+    animation: modalopen 0.7s;
     
 }
 .modal-content{
-    width: 300px;
-    height: 300px;
-    background: rgba(255,255,255, 1);
-    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.17);
-    animation-name: modalopen;
-    animation-duration: 1s;
+    margin: 0;
+    padding: 0;
+    position:relative;
+    width: 400px;
+    height: 350px;
+/*    background: rgba(255,255,255, 1);*/
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.5),
+        0 7px 20px 0 rgba(0,0,0,0.4);
+    
+
+/*    border: solid #7b0000 5px; */
 }
-.close{
+.modal-header .closeBtn{
+    margin: 0;
+    padding: 0 15;
     font-size: 40px;
     position:absolute;
     top: 0;
-    left: 85%;
+    right: 0%;
     float: right;
-/*    color: #e13a3b;    */
+
 }
-.close:hover, .close:focus{
-/*    color: #000;*/
+.closeBtn:hover, .closeBtn:focus{
+    color: #fff;
     text-decoration: none;
     cursor: pointer;
+    border-radius: 50%;
+    text-shadow: -3px 3px 5px #000000;;
 }
 
 .modal-header{
+    background: #b2000b;
     text-align:center;
-    
+    color: #fff;
+    border-radius: 0;
+    letter-spacing: 0.3em;
 }
-.modal-inner{
+.modal-body{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: #F28D40;
+    color: #fff;
+    
     
 }
 .modal-footer{
-   justify-content: center; 
+    background: #b2000b;
+    color: #fff;
+    border-radius: 0;
+    justify-content: center; 
 }
 @keyframes modalopen{
     from{
