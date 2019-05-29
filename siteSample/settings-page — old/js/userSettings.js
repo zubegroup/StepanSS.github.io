@@ -16,9 +16,7 @@ var exitPopup = '';
 $( "#your_link" ).val(link);
 
 //add default Background
-var bgDefault = 'bg='+$("input[name='BgRadiosBtn']:checked").val();
-var radioBtn = $("input[name='BgRadiosBtn']:checked").val();
-console.log(radioBtn);
+var bgDefault = 'bg='+$(".background").val();
 displayLink(bgDefault);
 
 // Add Exit Popup
@@ -28,15 +26,15 @@ if ($('#exitPop').is(':checked')){
 
 
 //---Change background img
-$("input[name='BgRadiosBtn']").on('change', function() {
+$(".background").on('change', function() {
     var backgroundNum = $(this).val()
     var url      = window.location.href;
     //get absolute url
     url = url.split(/(.+\/).?/)[1];
-    console.log(backgroundNum);
+//    console.log(url);
     var imgName = "url("+url+"images/bg-"+backgroundNum+".jpg)"
 //    $('body').attr('style', 'background-image:'+imgName);
-//    showBGlightbox(imgName);
+    showBGlightbox(imgName);
     bg='bg='+backgroundNum;
     displayBg(bg);
 
@@ -58,7 +56,7 @@ $(".landing_page").on('change', function() {
         //reset original link
         $( "#your_link" ).val(link);
         //reset Background
-        bgDefault = 'bg='+$("input[name='BgRadiosBtn']:checked").val();
+        bgDefault = 'bg='+$(".background").val();
         displayLink(bgDefault);
         //reset Popup
         addPopupState("exit=on");
