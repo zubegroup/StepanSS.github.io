@@ -16,11 +16,11 @@
 	<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
 	<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
-   
+
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
@@ -29,17 +29,17 @@
 <!--comment: Full body-->
 <div id="wrapper">
 
-   <!-- Settings Panel-->   
-      
+   <!-- Settings Panel-->
+
    <div class="container" style="  ">
-      <div class="inner">         
-      
+      <div class="inner">
+
        <div class="row">
            <div class="col-md-12">
                <h3>Create your own Custom HopLink</h3>
-           </div>           
+           </div>
        </div>
-       
+
        <div class="row"> <!-- Main Settings       -->
             <div class="form-group col-md-12">
                <div class="row">
@@ -49,10 +49,10 @@
                     <div class="col-md-4">
                         <input type="text" class="form-control" id="clikBankId"  placeholder="Enter ID" onkeyup="displayClickBank(this.value)">
                           <small id="IDHelp" class="form-text text-muted">We'll never share your ID with anyone else.</small>
-                    </div>  
+                    </div>
                </div>
            </div>
-           
+
            <div class="form-group col-md-12">
                <div class="row">
                     <div class="col-md-4">
@@ -61,10 +61,10 @@
                     <div class="col-md-4">
                         <input type="text" class="form-control" id="trackId"  placeholder="Enter ID" onkeyup="displayTID(this.value)">
                           <small id="IDHelp" class="form-text text-muted">We'll never share your ID with anyone else.</small>
-                    </div>  
+                    </div>
                </div>
            </div>
-           
+
            <div class="form-group col-md-12">
                <div class="row">
                     <div class="col-md-4">
@@ -80,26 +80,26 @@
                             </select>
                         </div>
                           <small id="IDHelp" class="form-text text-muted">Choose Landing Page</small>
-                    </div>  
+                    </div>
                </div>
            </div>
         </div><!-- End Main Settings       -->
-        
-        
+
+
        <div class="custom-variables "><!-- Custom Settings       -->
           <h3>Custom Variables for VSL</h3>
-          
+
             <div class="row">
               <div class="col-md-4">
                         <label>Background:</label>
                     </div>
                     <div class="col-md-8">
-                     
+
                     <!-- Gallery Popup -->
                       <div class="popup-gallery">
-                            <a href="#test-popup1" class="open-popup-link" title="Bg-1">    <img src="/images/bg-1.jpg"  width="80" height="50px" alt="Background-2">
+                            <a href="#test-popup1" class="open-popup-link" title="Bg-1">    <img src="../images/bg-1.jpg"  width="80" height="50px" alt="Background-2">
                             </a>
-                            <a href="#test-popup2" class="open-popup-link" title="Bg-2">    <img src="/images/bg-2.jpg"  width="80" height="50px" alt="Background-2">
+                            <a href="#test-popup2" class="open-popup-link" title="Bg-2">    <img src="../images/bg-2.jpg"  width="80" height="50px" alt="Background-2">
                             </a>
                             <a href="#test-popup3" class="open-popup-link" title="Bg-3">    <img src="/images/bg-3.jpg"  width="80" height="50px" alt="Background-3">
                             </a>
@@ -108,7 +108,7 @@
                             <a href="#test-popup5" class="open-popup-link" title="Bg-5">    <img src="/images/bg-5.jpg"  width="80" height="50px" alt="Background-5">
                             </a>
                         </div>
-                        
+
                         <fieldset class="form-group-gallery" >
                               <legend>Radio buttons</legend>
 
@@ -173,9 +173,9 @@
                             </select>
                         </div>
 -->
-                         
+
                           <small id="IDHelp" class="form-text text-muted">Choose Background</small>
-                    </div> 
+                    </div>
             </div>
             <div class="row">
                 <div class="col-md-4">
@@ -218,38 +218,38 @@
                 </div>
             </div>
        </div><!-- End Custom Settings       -->
-        
+
         <div class="your-link">
             <h3>Your Link:</h3>
 <!--             <i class="far fa-copy"></i>-->
-                        
+
             <input type="text" class="form-control" id="your_link"  placeholder="Your Link" >
 <!--       onkeyup="displayLink(this)" -->
            <span id="copy_icon" onclick="copyToClopboard()" onmouseout="outFunc()">
                <span class="inner_info">
                    Copy to Clipboard
                </span>
-           </span>            
-        </div>   
-        </div>   
+           </span>
+        </div>
+        </div>
    </div>
-   
+
     <!-- Lightbox Section-->
    <div class="bg_Ligtboxing" id="lightboxBG">
       <div class="ligtbox-content">
          <div class="closeBtn" id="closeModalBtn">
              <p>&times;</p>
          </div>
-          
+
       </div>
-       
+
    </div><!-- End Lightbox Section-->
-   
+
     <!-- END Settings Panel-->
 
-	
-	
-	
+
+
+
 	<!--comment: Everything Footer-->
 	<div id="footer">
 		<div id="footer-inside">
@@ -284,20 +284,20 @@
 <!-- Yser Settings JS-->
     <script src="js/userSettings.js"></script>
 <!--    <script src="js/lightboxBG.js"></script>-->
-    
+
     <!-- Magnific Popup core CSS file -->
     <link rel="stylesheet" href="magnific-popup/magnific-popup.css">
   <!-- jQuery 1.7.2+ or Zepto.js 1.0+ -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    
+
   <!-- Magnific Popup core JS file -->
     <script src="magnific-popup/jquery.magnific-popup.js"></script>
-    
+
     <!--Magnific Popup Main JS file-->
     <script src="magnific-popup/main.js"></script>
     <!--Custom Style    -->
-	
+
     <link rel="stylesheet" href="magnific-popup/style.css">
 <!--    <link rel="stylesheet" type="text/css" href="css/lightboxBG.css">-->
-    
+
 </body></html>
