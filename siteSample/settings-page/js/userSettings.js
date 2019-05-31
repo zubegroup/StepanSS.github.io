@@ -2,9 +2,12 @@
 var link2 = 'http://8xfemaleorgasm.com/VSL/VSL_4.html';
 var link = 'http://affiliate.zube8woeng.hop.clickbank.net/';
 //Variables to change Landing Page
-var landingPage2='Long Form Sales Text';
-var landingPage3='Direct to pre-order page';
-var landingPage4='Direct to order page';
+//'Long Form Sales Text';
+var landingPage2='http://8xfemaleorgasm.com/VSL/VSL-txt.html';
+//'Direct to pre-order page';
+var landingPage3='http://8xfemaleorgasm.com/order/pre-ord.html';
+//'Direct to order page';
+var landingPage4='http://8xfemaleorgasm.com/order.php';
 
 var bg = '';
 var autoplayVsl = '';
