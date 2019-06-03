@@ -31,3 +31,23 @@ function clickOutside(e){
       modal.style.display='none';
   } 
 }
+
+// Popup for mobile devices
+$( document ).ready(function() {      
+    var isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
+
+    if (isMobile) {
+        $(window).on('popstate', function(event) {
+             alert("pop");
+        });
+        //Conditional script here
+        if(modalState && exitState){
+            setTimeout(function(){
+        			modal.style.display = 'flex'
+     			}, 5000);
+//          modal.style.display = 'flex';
+            modalState = false;
+            console.log('mobile');
+    }
+    }
+ });
