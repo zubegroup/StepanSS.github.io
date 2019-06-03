@@ -34,27 +34,30 @@ function clickOutside(e){
 
 // Popup for mobile devices
 $( document ).ready(function() {      
-    var isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
+    var isMobile = window.matchMedia("only screen and (max-width: 770px)").matches;
     
-    window.history.pushState({page: 1}, "", "");
+    if(isMobile){
+       window.history.pushState({page: 1}, "", "");
 
-    window.onpopstate = function(event) {
+        window.onpopstate = function(event) {
 
-      // "event" object seems to contain value only when the back button is clicked
-      // and if the pop state event fires due to clicks on a button
-      // or a link it comes up as "undefined" 
+          // "event" object seems to contain value only when the back button is clicked
+          // and if the pop state event fires due to clicks on a button
+          // or a link it comes up as "undefined" 
 
-      if(event && isMobile){
-          // Code to handle back button or prevent from navigation
-          modal.style.display = 'flex';
-          modalState = false;
-//          console.log('mobile');
-//          alert('stop');
-      }
-      else{
-        // Continue user action through link or button
-      }
+          if(event){
+              // Code to handle back button or prevent from navigation
+              modal.style.display = 'flex';
+              modalState = false;
+    //          console.log('mobile');
+    //          alert('stop');
+          }
+          else{
+            // Continue user action through link or button
+          }
+        } 
     }
+    
     
 //    //Switch Popup with delay
 //    if (isMobile) {
