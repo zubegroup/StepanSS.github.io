@@ -35,19 +35,35 @@ function clickOutside(e){
 // Popup for mobile devices
 $( document ).ready(function() {      
     var isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
+    
+    window.history.pushState({page: 1}, "", "");
 
-    if (isMobile) {
-        $(window).on('popstate', function(event) {
-             alert("pop");
-        });
-        //Conditional script here
-        if(modalState && exitState){
-            setTimeout(function(){
-        			modal.style.display = 'flex'
-     			}, 5000);
-//          modal.style.display = 'flex';
-            modalState = false;
-            console.log('mobile');
+    window.onpopstate = function(event) {
+
+      // "event" object seems to contain value only when the back button is clicked
+      // and if the pop state event fires due to clicks on a button
+      // or a link it comes up as "undefined" 
+
+      if(event && isMobile){
+          // Code to handle back button or prevent from navigation
+          modal.style.display = 'flex';
+          modalState = false;
+//          console.log('mobile');
+//          alert('stop');
+      }
+      else{
+        // Continue user action through link or button
+      }
     }
-    }
+    
+//    //Switch Popup with delay
+//    if (isMobile) {
+//        if(modalState && exitState){
+//            setTimeout(function(){
+//        			modal.style.display = 'flex'
+//     			}, 5000);
+//            modalState = false;
+//            console.log('mobile');
+//        }
+//    }
  });
