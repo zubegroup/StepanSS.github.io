@@ -3,14 +3,48 @@ a{
 }
 .form-group-gallery{
     display: none;
-    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    
+}
+.form-check-gallery{
+    height: auto;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto
 }
 .inner-box{
     padding: 0px ;
+    display: flex;
     position: relative;
-    margin: 40px ;
+/*    margin:  0% auto;*/
+    width: 100%;
+    height: auto;
+    
     align-content: center;
+    justify-content: center;
     font-size: 2rem;
+    animation-name: bgPopupContant;
+    animation-duration: 0.7s; 
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.5),
+        0 7px 20px 0 rgba(0,0,0,0.4);
+}
+img{
+    object-fit: cover;
+
+}
+
+@keyframes bgPopupContant{
+    from{
+        opacity: 0.9;
+        transform: scale(.9);
+        
+    }to{
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 .form-check-label-gallery{
     padding: 5px 0 0 0;

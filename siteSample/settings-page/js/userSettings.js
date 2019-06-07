@@ -1,13 +1,15 @@
 //=======Dynamic settings applying
-var link2 = 'http://8xfemaleorgasm.com/VSL/VSL_4.html';
+//var link2 = 'http://8xfemaleorgasm.com/VSL/VSL_4.html';
 var link = 'http://affiliate.zube8woeng.hop.clickbank.net/';
 //Variables to change Landing Page
 //'Long Form Sales Text';
-var landingPage2='http://8xfemaleorgasm.com/VSL/VSL-txt.html';
+var landingPage2='http://affiliate.zube8woeng.hop.clickbank.net/?V=text';
 //'Direct to pre-order page';
-var landingPage3='http://8xfemaleorgasm.com/order/pre-ord.html';
-//'Direct to order page';
-var landingPage4='http://8xfemaleorgasm.com/order.php';
+var landingPage3='http://affiliate.zube8woeng.hop.clickbank.net/?V=order';
+//'Direct to order page(standard)';
+var landingPage4='http://affiliate.zube8woeng.hop.clickbank.net/?V=buy';
+//'Direct to order page(sub)';
+var landingPage5='http://affiliate.zube8woeng.hop.clickbank.net/?V=buy-sub';
 
 var bg = '';
 var autoplayVsl = '';
@@ -53,13 +55,17 @@ $("input[name='BgRadiosBtn']").on('change', function() {
 //---Change Landing Page
 $(".landing_page").on('change', function() {
     var landingPage = $(this).val();
+    var clickBankId = $('#clickBankId').val();
+    var trackId = $('#trackId').val();
     if(landingPage==1){
         $(".custom-variables").attr('style', 'display:block');
         
         //reset checkboxes
         resetCheckboxes();                
-        //reset original link
+        //reset original/last link
         $( "#your_link" ).val(link);
+        displayClickBank(clickBankId);
+        displayTID(trackId);
         //reset Background
         bgDefault = 'bg='+$("input[name='BgRadiosBtn']:checked").val();
         displayLink(bgDefault);
@@ -71,12 +77,23 @@ $(".landing_page").on('change', function() {
     };
     if(landingPage==2){
         $( "#your_link" ).val(landingPage2);
+        displayClickBank(clickBankId);
+        displayTID(trackId);
     };
     if(landingPage==3){
         $( "#your_link" ).val(landingPage3);
+        displayClickBank(clickBankId);
+        displayTID(trackId);
     };
     if(landingPage==4){
         $( "#your_link" ).val(landingPage4);
+        displayClickBank(clickBankId);
+        displayTID(trackId);
+    };
+    if(landingPage==5){
+        $( "#your_link" ).val(landingPage5);
+        displayClickBank(clickBankId);
+        displayTID(trackId);
     };
 });
 
@@ -147,6 +164,7 @@ function outFunc() {
   var tooltip = $('.inner_info');
   tooltip.text( "Copy to Clipboard");
 }
+
 //+++ Function to add Exit Popup State
 function addPopupState(str){
     var presentLink = $( "#your_link" ).val();
@@ -203,7 +221,7 @@ function displayTID(str){
     //original end
     if(presentLink.match(originalLinkEnd) && str!=''){
         newlink =presentLink +"?"+ tid;
-        console.log("print");
+//        console.log("print");
     }else if(presentLink.match('tid=')){//Has some tid
         
         if(str==''){

@@ -592,8 +592,8 @@ table.ototab th, table.ototab td {
     text-align: center;
 }
 .row{
-    margin-top: 15px;
-    margin-bottom: 15px
+    margin-top: 10px;
+    margin-bottom: 10px
 }
 .form-group {
     margin-bottom: 0 !important;
@@ -606,6 +606,8 @@ table.ototab th, table.ototab td {
     width: 80%;
     margin: auto
 }
+
+
 #copy_icon:before {
     font-family: 'Font Awesome\ 5 Free';
     content: '\f0c5';
@@ -617,7 +619,6 @@ table.ototab th, table.ototab td {
     background: #ccc;
     margin: px;
     padding: 4px 10px;
-    
 }
 
 #copy_icon:hover, #copy_icon:focus{
@@ -652,9 +653,59 @@ label{
     transform: scale(2);
     
 }
+/*Check-boxes styling*/
+.customCheckBoxes div{
+/*    padding-left: 100px;*/
+/*    margin-left: 10%;*/
+/*    padding: 50px 100px 10px 50px;*/
+/*    padding-left: 40%;*/
+}
+
+.col-md-12 .form-check label input{
+    margin: 0;
+    margin-right: 10px;
+    padding: 0;
+    position: relative;
+    
+}
+.col-md-12 .form-check label{
+/*    display: block;*/
+/*    margin: 10*/
+}
+.col-md-12 #buyButton {
+}
+.col-md-12 #buyButton
 
 
 /*End Settings Panel*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
