@@ -3,13 +3,13 @@
 var link = 'http://affiliate.zube8woeng.hop.clickbank.net/';
 //Variables to change Landing Page
 //'Long Form Sales Text';
-var landingPage2='http://affiliate.zube8woeng.hop.clickbank.net/?V=text';
+var landingPage2='http://affiliate.zube8woeng.hop.clickbank.net/?v=text';
 //'Direct to pre-order page';
-var landingPage3='http://affiliate.zube8woeng.hop.clickbank.net/?V=order';
+var landingPage3='http://affiliate.zube8woeng.hop.clickbank.net/?v=order';
 //'Direct to order page(standard)';
-var landingPage4='http://affiliate.zube8woeng.hop.clickbank.net/?V=buy';
+var landingPage4='http://affiliate.zube8woeng.hop.clickbank.net/?v=buy';
 //'Direct to order page(sub)';
-var landingPage5='http://affiliate.zube8woeng.hop.clickbank.net/?V=buy-sub';
+var landingPage5='http://affiliate.zube8woeng.hop.clickbank.net/?v=buy-sub';
 
 var bg = '';
 var autoplayVsl = '';
@@ -21,10 +21,14 @@ var exitPopup = '';
 $( "#your_link" ).val(link);
 
 //add default Background
-var bgDefault = 'bg='+$("input[name='BgRadiosBtn']:checked").val();
-var radioBtn = $("input[name='BgRadiosBtn']:checked").val();
-console.log(radioBtn);
+var bgNum = $("input[name='BgRadiosBtn']:checked").val();
+var bgDefault = 'bg='+bgNum;
+//var radioBtn = $("input[name='BgRadiosBtn']:checked").val();
+//console.log(radioBtn);
 displayLink(bgDefault);
+//add border to selected image
+$('#img_'+bgNum).attr('style', 'border-bottom: solid red 5px');
+
 
 // Add Exit Popup
 if ($('#exitPop').is(':checked')){
@@ -33,6 +37,39 @@ if ($('#exitPop').is(':checked')){
 
 
 //---Change background img
+var btnState = false;
+var prevBtnState = false;
+
+$('.bgSelectBtn').on('click', function(){
+    var bgNum = $("input[name='BgRadiosBtn']").val();
+    if( 1){//btnState == false
+        //select img
+        btnState=!btnState;
+        console.log('Sel' +btnState);
+        var id = '#BgRadios'+bgNum;
+        console.log(id);
+        $(id).prop('checked', true);
+        //reset border
+        $('#img_1').attr('style', 'border-bottom: ');
+        $('#img_2').attr('style', 'border-bottom: ');
+        $('#img_3').attr('style', 'border-bottom: ');
+        $('#img_4').attr('style', 'border-bottom: ');
+        $('#img_5').attr('style', 'border-bottom: ');
+
+        // add border to image
+        var imgId = "#img_"+bgNum;
+        $(imgId).attr('style', 'border-bottom: solid red 5px');
+        
+        // close popup
+        $.magnificPopup.close();
+        
+        //Update link
+        bg='bg='+bgNum;
+        displayBg(bg);
+    }
+    
+})
+
 $("input[name='BgRadiosBtn']").on('change', function() {
     var backgroundNum = $(this).val()
     var url      = window.location.href;
@@ -41,15 +78,20 @@ $("input[name='BgRadiosBtn']").on('change', function() {
     console.log(backgroundNum);
     var imgName = "url("+url+"images/bg-"+backgroundNum+".jpg)"
 //    $('body').attr('style', 'background-image:'+imgName);
-//    showBGlightbox(imgName);
     bg='bg='+backgroundNum;
     displayBg(bg);
+    //reset border
+    $('#img_1').attr('style', 'border-bottom: ');
+    $('#img_2').attr('style', 'border-bottom: ');
+    $('#img_3').attr('style', 'border-bottom: ');
+    $('#img_4').attr('style', 'border-bottom: ');
+    $('#img_5').attr('style', 'border-bottom: ');
+    
+    // add border to image
+    var imgId = "#img_"+backgroundNum;
+    $(imgId).attr('style', 'border-bottom: solid red 5px');
 
-    //Change bg color to black
-//    if(backgroundNum==1){
-//        $("#footer-inside a").attr('style', 'color:black');
-//        $(".footer-left").attr('style', 'color:black');
-//    };
+ 
 });
 
 //---Change Landing Page

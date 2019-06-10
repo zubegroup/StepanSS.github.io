@@ -591,9 +591,9 @@ table.ototab th, table.ototab td {
 .container h3 {
     text-align: center;
 }
-.row{
-    margin-top: 10px;
-    margin-bottom: 10px
+.main-rows{
+    margin-top: 15px;
+    margin-bottom: 15px
 }
 .form-group {
     margin-bottom: 0 !important;
@@ -643,6 +643,8 @@ table.ototab th, table.ototab td {
   display: block;
   opacity: 1;
 }
+
+/*Check-boxes styling*/
 label{
     font-weight: 600;
 }
@@ -653,13 +655,6 @@ label{
     transform: scale(2);
     
 }
-/*Check-boxes styling*/
-.customCheckBoxes div{
-/*    padding-left: 100px;*/
-/*    margin-left: 10%;*/
-/*    padding: 50px 100px 10px 50px;*/
-/*    padding-left: 40%;*/
-}
 
 .col-md-12 .form-check label input{
     margin: 0;
@@ -668,13 +663,24 @@ label{
     position: relative;
     
 }
-.col-md-12 .form-check label{
-/*    display: block;*/
-/*    margin: 10*/
+.form-check {
+/*    background: lightgreen;*/
+    margin: 0 0 12 0;
+    padding: ;
 }
-.col-md-12 #buyButton {
+
+.col-md-12{
+/*    background: green;*/
+    margin: 0;
 }
-.col-md-12 #buyButton
+/*Style for bg gallery*/
+
+.popup-gallery a:hover{
+    text-decoration: none;
+}
+.popup-gallery a img:hover{
+    border-bottom: solid red 5px;
+}
 
 
 /*End Settings Panel*/
