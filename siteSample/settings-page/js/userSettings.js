@@ -97,6 +97,7 @@ $("input[name='BgRadiosBtn']").on('change', function() {
 //---Change Landing Page
 $(".landing_page").on('change', function() {
     var landingPage = $(this).val();
+    
     var clickBankId = $('#clickBankId').val();
     var trackId = $('#trackId').val();
     if(landingPage==1){
@@ -137,6 +138,9 @@ $(".landing_page").on('change', function() {
         displayClickBank(clickBankId);
         displayTID(trackId);
     };
+    var options = this.getElementsByTagName("option");
+    var optionHTML = options[this.selectedIndex].innerHTML;
+    displayMsgBox(landingPage, optionHTML );
 });
 
 //---trigger for Autoplay
@@ -327,6 +331,17 @@ function removeFromLink(str){
 //        console.log(regExp1);
     }
     return newLink;
+}
+
+//++++Functionto show Msg Box when Landing Page selected
+function displayMsgBox(landingPage, optionHTML){
+    var delay = 2000;//delay time
+    $('.alert-success').html(optionHTML+' SELECTED');
+    
+    $('.alert-success').attr('style', 'display:block');
+    setTimeout(function(){
+        $('.alert-success').attr('style', 'display:none');
+    }, delay)
     
 }
 

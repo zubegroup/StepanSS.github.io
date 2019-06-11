@@ -681,7 +681,13 @@ label{
 .popup-gallery a img:hover{
     border-bottom: solid red 5px;
 }
-
+/*Success MSG*/
+.alert-success{
+    position: absolute !important;
+    padding: 0 15px 0 15px ;
+    top: 2.5rem;
+    display: none;
+}
 
 /*End Settings Panel*/
 
