@@ -1,0 +1,196 @@
+.bg-modal{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.88);
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    display: flex;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    animation-name: modalPopup;
+    animation-duration: 1s;
+}
+@keyframes modalPopup{
+    from{
+        opacity: 0;
+    }to{
+        opacity: 1;
+    }
+}
+.modal-body2 {
+    position: relative;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: ;
+}
+
+.modal-header {
+    background-image: url("../images/exit-header.jpg");
+    background-repeat: no-repeat;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    max-width: 733px;
+    width: 100%;
+    text-align:center;
+}
+.modal-title {
+    text-align: center;
+    color: #cc0000;
+    font-size: 33px;
+    line-height: 34px;
+    font-family: Georgia, "Times New Roman", times, serif;
+    text-align: center;
+    margin: auto;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px #000000;
+}
+.col-md-6 {
+    text-align: center;
+    vertical-align: middle;
+    color: #cc0000;
+    font-size: 28px;
+    line-height: 29px;
+    font-family: Georgia, "Times New Roman", times, serif;
+    text-align: center;
+    margin: auto;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px #000000;
+}
+.modal-title img {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    max-width: 733px;
+    width: 100%;
+    margin: 0;
+}
+#closeModalBtn{
+    background-color: rgba(40, 40, 40, 1);
+    font-size: 30px;
+    height: 32px;
+    width: 32px;
+    text-decoration: none;
+    text-align: center;
+    justify-content: center;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    float: right;
+    color: #fff;
+    border-radius: 50%;
+    border: solid;
+    z-index: 100;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.5), 0 7px 20px 0 rgba(0,0,0,0.4);
+}
+
+#closeModalBtn p {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 49%;
+    transform: translateY(-55%);
+}
+#closeModalBtn:hover{
+    background: #fff;
+    border: #fff;
+}
+#closeModalBtn:hover, #closeModalBtn:focus{
+    text-decoration: none;
+    cursor: pointer;
+    color: #000;
+}
+/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+@media screen and (min-width: 601px) {
+  div.modal-title {
+    font-size: 33px;
+    line-height: 34px;
+  }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+  div.modal-title {
+    font-size: 23px;
+    line-height: 24px;
+  }
+}
+.modal-content{
+    position: relative;
+    text-align: center;
+    border-style: solid;
+    border-color: red;
+    border-width: 3px;
+    border-radius: 15px;
+    width: 733px;
+    min-height: 600px;
+    height: auto;
+    background: rgba(255,255,255, 1);
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.17);    
+}
+.col-md-6 {
+    text-align: center!important;
+}
+.close{
+    font-size: 40px;
+    position:absolute;
+    top: 0;
+    left: 85%;
+    float: right;
+/*    color: #e13a3b;    */
+}
+.close:hover, .close:focus{
+/*    color: #000;*/
+    text-decoration: none;
+    cursor: pointer;
+}
+ 
+}
+.modal-inner{
+    
+}
+.modal-footer{
+   justify-content: center; 
+}
+.email-and-button{
+    padding: 0 20px 10px
+}
+.form-control-lg{
+    width: 100%;
+    height: 60px;
+}
+.text-box {
+/*
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 1px 4px #ccc;
+    -moz-box-shadow: inset 0 1px 4px #ccc;
+    -o-box-shadow: inset 0 1px 4px #ccc;
+    -ms-box-shadow: inset 0 1px 4px #ccc;
+    box-shadow: inset 0 1px 4px #cccc;
+    border: 1px solid #aaa;
+    background: #fff;
+    font-size: 16px;
+    color: #686868;    
+    display: block;
+    margin: 0 auto 15px;
+    box-sizing: content-box;
+*/
+/*    padding: 15px;*/
+}
+.button {
+    width: 100%;
+    min-height: 1.5em;
+    background: #f39d13;
+    background: -webkit-linear-gradient(top, #f39d13 0, #c64f01 100%);
+    background: linear-gradient(to bottom,#f39d13 0,#c64f01 100%);
+    border-radius: 10px;
+    border: 1px solid #c94f00;
+    text-shadow: 0 1px #bf1802;
+    color: #fff;
+    font-family: HelveticaNeue,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
