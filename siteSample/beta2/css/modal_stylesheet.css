@@ -1,3 +1,7 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 .bg-modal{
     min-height: 100%;
     width: 100%;
@@ -118,10 +122,13 @@
   div p {
     font-size: 23px;
     line-height: 24px;
-    
+    margin-bottom: 0;
   }
+    h4 p {
+       margin-bottom: 5px; 
+    }
     .body-img{
-        max-width: 219px;
+        max-width: 200px;
 }
     .bg-modal{
          
@@ -130,6 +137,9 @@
         max-width: 90%;
         max-height: 100vh;
         overflow-y: auto;
+    }
+    form{
+        padding-top: 0;
     }
     
 }
