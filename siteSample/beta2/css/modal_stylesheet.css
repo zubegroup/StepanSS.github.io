@@ -136,8 +136,9 @@
          
     }
     .modal-content{
+        margin: 20px
         max-width: 90%;
-        max-height: 100vh;
+/*        max-height: 100vh;*/
         overflow-y: auto;
     }
     form{
@@ -164,8 +165,7 @@
          
     }
     .modal-content{
-        max-width: 90%;
-        max-height: 100vh;
+        transform: scale(0.8);
         overflow-y: auto;
     }
     form{
@@ -186,7 +186,7 @@
     border-radius: 15px;
 /*    width: 733px;*/
     width: auto;
-    min-height: 600px;
+/*    min-height: 600px;*/
     height: auto;
     background: rgba(255,255,255, 1);
     box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.17);
