@@ -68,6 +68,7 @@
     width: 100%;
     margin: 0;
 }
+
 #closeModalBtn{
     background-color: rgba(40, 40, 40, 1);
     font-size: 30px;
@@ -83,7 +84,7 @@
     color: #fff;
     border-radius: 50%;
     border: solid;
-    z-index: 100;
+    z-index: 0;
     box-shadow: 0 5px 10px 0 rgba(0,0,0,0.5), 0 7px 20px 0 rgba(0,0,0,0.4);
 }
 
@@ -105,7 +106,7 @@
 }
 /* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
 @media screen and (min-width: 601px) {
-  div.modal-title {
+  div p {
     font-size: 33px;
     line-height: 34px;
     
@@ -113,44 +114,42 @@
 }
 
 /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
-@media only screen and (max-width: 600px) {
-  div.modal-title {
+@media only screen and (max-width: 766px) {
+  div p {
     font-size: 23px;
     line-height: 24px;
     
   }
+    .body-img{
+        max-width: 219px;
+}
+    .bg-modal{
+         
+    }
     .modal-content{
+        max-width: 90%;
         max-height: 100vh;
         overflow-y: auto;
-    }
-    #closeModalBtn p {
-        top: 49%;
-        transform: translateY(-55%);
-    }
-    #closeModalBtn{
-        top: 0px;
-        right: 0px;  
     }
     
 }
 .modal-content{
-/*    max-height: calc(100vh - 20px);*/
+    overflow: visible ;
+    z-index: 2;
+    max-width: 733px;
     margin: 20px;
-    max-width: 90%;
     position: relative;
     text-align: center;
     border-style: solid;
     border-color: red;
     border-width: 3px;
     border-radius: 15px;
-    width: 733px;
+/*    width: 733px;*/
+    width: auto;
     min-height: 600px;
     height: auto;
     background: rgba(255,255,255, 1);
     box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.17);
-}
-.col-md-6 {
-    text-align: center!important;
 }
 .close{
     font-size: 40px;
@@ -161,13 +160,9 @@
 /*    color: #e13a3b;    */
 }
 .close:hover, .close:focus{
-/*    color: #000;*/
     text-decoration: none;
     cursor: pointer;
 }
-
-}
-.modal-inner{
 
 }
 .modal-footer{
