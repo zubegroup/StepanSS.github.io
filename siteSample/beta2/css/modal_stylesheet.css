@@ -93,12 +93,13 @@
 }
 
 #closeModalBtn p {
+    position: relative;
     font-size: 33px;
     margin: 0;
     padding: 0;
-    position: relative;
-    top: 40%;
-    transform: translateY(-55%);
+/*    position: relative;*/
+    top: 35%;
+    transform: translateY(-50%);
 }
 #closeModalBtn:hover{
     background: #fff;
@@ -131,6 +132,34 @@
     .body-img{
         max-width: 200px;
 }
+    .bg-modal{
+         
+    }
+    .modal-content{
+        max-width: 90%;
+        max-height: 100vh;
+        overflow-y: auto;
+    }
+    form{
+        padding-top: 0;
+    }
+    
+}
+@media only screen and (max-width: 400px) {
+  div p {
+    font-size: 18px;
+    line-height: 1.2em;
+    margin-bottom: 0;
+  }
+    h4 p {
+       margin-bottom: 5px; 
+    }
+    .body-img{
+        max-width: 200px;
+    }
+    .arrow{
+        max-width: 150px;
+    }
     .bg-modal{
          
     }
