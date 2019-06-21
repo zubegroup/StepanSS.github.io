@@ -93,10 +93,11 @@
 }
 
 #closeModalBtn p {
+    font-size: 33px;
     margin: 0;
     padding: 0;
     position: relative;
-    top: 49%;
+    top: 40%;
     transform: translateY(-55%);
 }
 #closeModalBtn:hover{
